@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY-SPACE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="theme-winter">
+    <header class="fixed top-0 left-0 w-full z-50 h-0">
+        <div class="nav-icon" id="ham" onclick="body.classList.toggle('nav-open')">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav onclick="body.classList.toggle('nav-open')">
+            <a href="#hero" class="nav-item">HOME</a>
+            <a href="#about" class="nav-item">ABOUT</a>
+            <a href="#skills" class="nav-item">SKILLS</a>
+            <a href="#projects" class="nav-item">PROJECTS</a>
+        </nav>
+        <div class="fixed top-3 right-3 theme-switcher">
+          <button onclick="toggleThemeSwitchers()" class="h-10 w-10 rounded-full border-dashed border bg-slate-950">
+            <img src="./assets/MSLogo-removebg-preview.png" alt="" class="cursor-pointer w-[100%] h-[100%] text-white" />
+          </button>
+          <div id="themeSwitchers" class="hidden">
+              <button onclick="setTheme('theme-summer')" class="h-10 w-10 rounded-full border-dashed bg-sky-500"></button>
+              <button onclick="setTheme('theme-winter')" class="h-10 w-10 rounded-full border-dashed bg-blue-950"></button>
+              <button onclick="setTheme('theme-autumn')" class="h-10 absolute top-0 left-10 w-10 rounded-full border-dashed bg-yellow-100/50"></button>
+          </div>
+      </div>
+    </header>
+
+    <main>
+        <section id="hero" class="text-center flex">
+            <div>
+                <h1 class="text-3xl mb-4 split-type ">Hi there, I'm Dandu Madhukar Reddy</h1>
+                <p class="text-lg leading-relaxed mx-auto max-w-2xl mb-9 ">
+                  I am passionate about mastering the <span title="the interaction of two or more technologies to produce a combined effect greater than the sum of their separate effects:" class="underline cursor-pointer">synergy</span> between Data Science and Fullstack development to engineer groundbreaking solutions.
+                  Leveraging my expertise, I transform innovative concepts into dynamic applications and websites, showcasing my proficiency in Fullstack development.
+                </p>
+                <a href="./assets/resume.pdf" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">Download My Resume</a>
+            </div>
+            <div>
+                <img src="./assets/OIG1.GmPDN9ksrY.jpeg.jpg" alt="Galaxy" class="dp object-contain">
+            </div>
+        </section>
+
+        <section id="about" class="text-center py-24 ">
+          <div class="container">
+              <h2 class="text-3xl font-semibold mb-8">About Me</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                  <div>
+                      <img src="./assets/dp.jpg" alt="Profile Picture" class="rounded-full mx-auto w-60 mb-8">
+                      <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">I'm a passionate Fullstack Developer and Data Scientist. With a blend of creativity and analytical thinking, I craft innovative solutions that bridge the gap between technology and data.</p>
+                      <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">My journey into the world of software development began with a curiosity for problem-solving and a knack for coding. Over the years, I've honed my skills in both frontend and backend technologies, allowing me to build robust applications from concept to deployment.</p>
+                      <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">In addition to my programming expertise, I thrive on exploring the vast realm of data science. From extracting insights to building predictive models, I leverage the power of data to drive informed decisions and unlock new opportunities.</p>
+                  </div>
+                  <div class="grid grid-cols-1 gap-4">
+                      <div>
+                          <h3 class="text-2xl font-semibold mb-4">Skills Snapshot</h3>
+                          <ul class="text-left">
+                              <li class="mb-2"><strong>Frontend:</strong> HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS</li>
+                              <li class="mb-2"><strong>Backend:</strong> Node.js, Express.js, MongoDB, Firebase, MySQL, PostgreSQL</li>
+                              <li class="mb-2"><strong>Data Science:</strong> Python, Pandas, NumPy, TensorFlow, Tableau, Power BI</li>
+                          </ul>
+                      </div>
+                      <div>
+                          <h3 class="text-2xl font-semibold mb-4">Interests</h3>
+                          <ul class="text-left">
+                              <li class="mb-2">Exploring new technologies</li>
+                              <li class="mb-2">Building scalable and user-centric applications</li>
+                              <li class="mb-2">Continuous learning and skill development</li>
+                              <li class="mb-2">Contributing to open-source projects</li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>      
+
+        <section id="skills" class="text-center py-24 flex items-center justify-center flex-col">
+          <h2 class="text-3xl font-semibold mb-8">TECHONOLOGIES</h2>
+          <div class="scroller py-4">
+            <h2>Front-End technologies</h2>
+            <ul class="tag-list scroller_inner flex ">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JS & TS</li>
+              <li>TAILWINDCSS</li>
+              <li>REACT-JS</li>
+              <li>NEXT.JS</li>
+              <li>GSAP</li>
+              <li>MUI</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JS & TS</li>
+              <li>TAILWINDCSS</li>
+              <li>REACT-JS</li>
+              <li>NEXT.JS</li>
+              <li>GSAP</li>
+              <li>MUI</li>
+            </ul>
+          </div>
+          <div class="scroller py-4">
+            <h2>Back-End technologies</h2>
+            <ul class="tag-list scroller_inner flex ">
+              <li>MONGO-DB</li>
+              <li>EXPRESS-JS</li>
+              <li>NODE-JS</li>
+              <li>FAST-API</li>
+              <li>FIREBASE</li>
+              <li>MY SQL</li>
+              <li>POSTGRE SQL</li>
+              <li>MONGO-DB</li>
+              <li>EXPRESS-JS</li>
+              <li>NODE-JS</li>
+              <li>FAST-API</li>
+              <li>FIREBASE</li>
+              <li>MY SQL</li>
+              <li>POSTGRE SQL</li>
+            </ul>
+          </div>
+          <div class="scroller py-4">
+            <h2>Data-Science Technologies</h2>
+            <ul class="tag-list scroller_inner flex ">
+              <li>PYTHON</li>
+              <li>TABLEAU</li>
+              <li>POWER-BI</li>
+              <li>PANDAS</li>
+              <li>NUMPY</li>
+              <li>NLP</li>
+              <li>DEEP LEARNING</li>
+              <li>STREAMLIT</li>
+              <li>PYTHON</li>
+              <li>TABLEAU</li>
+              <li>POWER-BI</li>
+              <li>PANDAS</li>
+              <li>NUMPY</li>
+              <li>NLP</li>
+              <li>DEEP LEARNING</li>
+              <li>STREAMLIT</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="projects" class="text-center py-24">
+          <h2 class="text-3xl font-semibold mb-4">Projects</h2>
+          <div class="buttons">
+              <button onclick="showAllProjects()" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">ALL PROJECTS</button>
+              <button onclick="filterProjects('fullstack')" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out ">FULLSTACK PROJECTS</button>
+              <button onclick="filterProjects('datascience')" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out my-4">DATA-SCIENCE PROJECTS</button>
+              
+          </div>
+          <div class="container">
+              <div class="card" data-category="datascience">
+                <div class="card-image">
+                  <img src="./assets/pika-show.png">
+                </div>
+                <div class="card-text">
+                  <h2 class="card-title">PIKA SHOW</h2>
+                  <p class="card-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sed excepturi repellat? Assumenda quos accusantium obcaecati delectus impedit perferendis dignissimos.</p>
+                </div>
+                <div class="card-price">$56</div>
+              </div>
+              <div class="card" data-category="datascience">
+                <div class="card-image">
+                  <img src="./assets/OIG1 (1).jpeg.jpg">
+                </div>
+                <div class="card-text">
+                  <h2 class="card-title">IPL INSIGHTS</h2>
+                  <p class="card-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sed excepturi repellat? Assumenda quos accusantium obcaecati delectus impedit perferendis dignissimos.</p>
+                </div>
+                <div class="card-price">$56</div>
+              </div>
+              <div class="card" data-category="fullstack">
+                <div class="card-image">
+                  <img src="./assets/SpaceWebsite.png">
+                </div>
+                <div class="card-text">
+                  <h2 class="card-title">IPL INSIGHTS</h2>
+                  <p class="card-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum sed excepturi repellat? Assumenda quos accusantium obcaecati delectus impedit perferendis dignissimos.</p>
+                </div>
+                <div class="card-price">$56</div>
+              </div>
+          </div>
+      </section>
+
+      <footer class="bg-gray-800 text-white py-2">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col justify-center items-center md:items-start">
+                    <h3 class="text-2xl font-semibold mb-4">Let's Connect!</h3>
+                    <p class="mb-4">I'm always excited to collaborate on new projects and discuss data-driven solutions.</p>
+                    <div class="flex items-center">
+                        <a href="mailto:tomadhukarreddy@gmail.com" class="underline flex items-center">
+                          <img src="./assets/gmail.png" alt="Gmail" class="h-14 w-14">
+                          tomadhukarreddy@gmail.com</a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="flex justify-center md:justify-start">
+                        <a href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank" class="social-link mr-4">
+                            <img src="./assets/linkedin3d2.png" class="h-14 w-14">linkedin</img>
+                        </a>
+                        <a href="https://github.com/Madhukar-Reddy2002" target="_blank" class="social-link mr-4">
+                            <img src="./assets/github3d-removebg-preview.png" class="h-14 w-14"> github</img>
+                        </a>
+                        <a href="https://discord.com/channels/1202495888073695262/1202495888073695265" target="_blank" class="social-link mr-4">
+                            <img src="./assets/discord3d.png" class="h-14 w-14">Discord</img>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-400">
+            <p>&copy; 2024 Dandu Madhukar Reddy. All rights reserved.</p>
+            <p>Designed with &#x2764;</p>
+        </div>
+    </footer>
+    
+    
+        
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
+    <script src="./script.js"></script>
+    <script src="./animations.js"></script>
+
+</body>
+
+</html>
