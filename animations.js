@@ -85,11 +85,11 @@ projectCards.forEach((card, index) => {
     y: 100,
     rotation: -45,
     scale: 0.5,
-    duration: 1,
+    duration: 0.7,
     ease: "power4.out",
     scrollTrigger: {
       trigger: card,
-      start: "top 90%",
+      
       toggleActions: "play none none reverse",
     },
     delay: index * 0.1,
