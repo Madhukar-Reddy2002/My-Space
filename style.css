@@ -73,12 +73,25 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    
 }
 
-#hero img{
-  -webkit-mask-image: url(./assets/blob.svg);
-  mask-image: url(./assets/blob.svg);
-  scale: 1.4;
+.icons{
+  background: url('./assets/mainIconsdark.svg');
+  height: 450px;
+  width: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body.theme-autumn .icons{
+  background: url('./assets/mainIcons.svg');
+  height: 450px;
+  width: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 /* Custom Glassmorphic Effect */
 .glassmorphic-card {
