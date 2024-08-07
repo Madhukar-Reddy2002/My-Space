@@ -21,7 +21,7 @@ html{
   }
   
 body {
-    font-family:  "Exo 2", sans-serif;
+    font-family: 'Goldman', sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     background-color: var(--summer-bg);
@@ -34,6 +34,8 @@ body {
     flex-flow: column;
     width: 100vw;
     overflow-x: hidden;
+  padding-top:25px;
+
   }
   h1 {
     font-weight: 600;
@@ -110,7 +112,7 @@ body.theme-autumn .icons{
 body.theme-summer {
   background-color: var(--summer-bg);
   color: var(--summer-text);
-  font-family: 'Goldman';
+  font-family: "Exo 2";
   font-weight: 600;
 }
 
