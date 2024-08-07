@@ -34,6 +34,7 @@ body {
     flex-flow: column;
     width: 100vw;
     overflow-x: hidden;
+  padding-top:25px;
 
   }
   h1 {
