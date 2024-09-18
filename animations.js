@@ -63,32 +63,32 @@ gsap.from(".scroller", {
 });
 
 // Animation for the projects section
-gsap.from(".buttons", {
-  opacity: 0,
-  y: 100,
-  scale: 0.5,
-  duration: 1,
-  ease: "elastic",
-  scrollTrigger: {
-    trigger: ".buttons",
-    start: "top 70%",
-    toggleActions: "play none none reverse",
-  },
-});
+// gsap.from(".buttons", {
+//   opacity: 0,
+//   y: 100,
+//   scale: 0.5,
+//   duration: 1,
+//   ease: "elastic",
+//   scrollTrigger: {
+//     trigger: ".buttons",
+//     start: "top 70%",
+//     toggleActions: "play none none reverse",
+//   },
+// });
 
 // Animation for the projects section
-const projectCards = document.querySelectorAll(".card");
-projectCards.forEach((card, index) => {
-  gsap.from(card, {
-    opacity: 0,
-    y: 100,
-    rotation: -45,
-    scale: 0.5,
-    duration: 0.7,
-    ease: "power4.out",
-    scrollTrigger: {
-      trigger: card,
-      toggleActions: "play none none reverse",
-    },
-  });
-});
+// const projectCards = document.querySelectorAll(".card");
+// projectCards.forEach((card, index) => {
+//   gsap.from(card, {
+//     opacity: 0,
+//     y: 100,
+//     rotation: -90,
+//     scale: 0.5,
+//     duration: 0.5,
+//     ease: "power4.out",
+//     scrollTrigger: {
+//       trigger: card,
+//       toggleActions: "play none none reverse",
+//     },
+//   });
+// });
