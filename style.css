@@ -346,12 +346,14 @@ body.theme-autumn {
   .card-image{
     width:400px;
     height:300px;
+    border-radius: 50px 0px;
     object-fit: cover;
     object-position: center;
   }
   .card-image>img{
     width:100%;
     height:100%;
+    border-radius: 50px 0px;
     object-fit:cover;
     object-position:bottom;
   }
@@ -360,8 +362,9 @@ body.theme-autumn {
     margin-bottom:-50px;
     min-height:300px;
     width:300px;
-    backdrop-filter: blur(16px);
+    border-radius: 0px 50px;
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     padding:20px;
   }
   .card-title{
@@ -377,11 +380,36 @@ body.theme-autumn {
     display: flex;
     justify-content: space-around;
   }
-  .skill-set li{
-    border: 2px solid rgb(246, 246, 237);
+  .skill-set li {
     padding: 2px 15px;
     border-radius: 50px;
+    border: 2px solid;
+    animation: animateBorder 5s infinite;
   }
+  
+  @keyframes animateBorder {
+    0% {
+      border-color: rgb(246, 246, 237);
+    }
+    17% {
+      border-color: #FFC107; /* Color 1 */
+    }
+    34% {
+      border-color: #8BC34A; /* Color 2 */
+    }
+    51% {
+      border-color: #03A9F4; /* Color 3 */
+    }
+    68% {
+      border-color: #3F51B5; /* Color 4 */
+    }
+    85% {
+      border-color: #9C27B0; /* Color 5 */
+    }
+    100% {
+      border-color: rgb(246, 246, 237);
+    }
+  }  
   .card-price{
     width:100px;
     height:100px;
