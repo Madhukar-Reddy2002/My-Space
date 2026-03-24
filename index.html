@@ -1,50 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M33DZWS7');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Space</title>
+    <!-- ✅ Added meta description for SEO -->
+    <meta name="description" content="Dandu Madhukar Reddy — Fullstack Developer & Data Scientist passionate about building data-driven applications and innovative web experiences.">
+    <title>MY-SPACE | Dandu Madhukar Reddy</title>
+
+    <!-- ✅ Added Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ9PTZDV08"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HZ9PTZDV08');
+    </script>
+
     <style>
+        /* ✅ Apply imported fonts site-wide */
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'DM Sans', sans-serif;
         }
-        header {
-            background: #333;
+        h1, h2, h3, .nav-item {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* ✅ Scroll-to-top button */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 999;
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.15);
             color: #fff;
-            padding: 10px 20px;
-            text-align: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+            pointer-events: none;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
+        #scrollTopBtn.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
         }
-        .button {
-            display: inline-block;
-            font-size: 18px;
-            color: #fff;
-            background: #5CB85C;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+        #scrollTopBtn:hover {
+            background: rgba(30, 41, 59, 1);
         }
-        .button:hover {
-            background: #4cae4c;
+        #scrollTopBtn svg {
+            width: 1.1rem;
+            height: 1.1rem;
+        }
+
+        /* ✅ Section divider subtle line */
+        section + section {
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* ✅ Skill badge styling refinement */
+        .skill-set li {
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        /* ✅ Card title font */
+        .card-title {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* ✅ Footer polish */
+        footer .footer-copy {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+        }
+
+        /* ✅ Active nav highlight on scroll - base ready */
+        .nav-item.active {
+            opacity: 1;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* ✅ Tag list scroller refined */
+        .tag-list li {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Welcome to My Space</h1>
+
+<body class="theme-winter">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M33DZWS7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="fixed top-0 left-0 w-full z-50 h-0">
+        <!-- ✅ Fixed: body.classList → document.body.classList -->
+        <div class="nav-icon" id="ham" onclick="document.body.classList.toggle('nav-open')" aria-label="Toggle navigation" role="button" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav onclick="document.body.classList.toggle('nav-open')" aria-label="Main navigation">
+            <a href="#hero" class="nav-item">HOME</a>
+            <a href="#about" class="nav-item">ABOUT</a>
+            <a href="#skills" class="nav-item">SKILLS</a>
+            <a href="#projects" class="nav-item">PROJECTS</a>
+        </nav>
+        <div class="fixed top-3 right-3 theme-switcher">
+            <button onclick="toggleThemeSwitchers()" class="h-10 w-10 rounded-full border-dashed border bg-slate-950" aria-label="Toggle theme switcher">
+                <img src="./assets/MSLogo-removebg-preview.png" alt="MY-SPACE logo" class="cursor-pointer w-[100%] h-[100%] text-white" />
+            </button>
+            <div id="themeSwitchers" class="hidden">
+                <button onclick="setTheme('theme-summer')" class="h-10 w-10 rounded-full border-dashed bg-sky-500" aria-label="Summer theme"></button>
+                <button onclick="setTheme('theme-winter')" class="h-10 w-10 rounded-full border-dashed bg-blue-950" aria-label="Winter theme"></button>
+                <button onclick="setTheme('theme-autumn')" class="h-10 absolute top-0 left-10 w-10 rounded-full border-dashed bg-yellow-100/50" aria-label="Autumn theme"></button>
+            </div>
+        </div>
     </header>
-    <div class="container">
-        <p>This is an improved version of the webpage with enhanced content and UI.</p>
-        <a href="#" class="button">Get Started</a>
-    </div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="hero" class="text-center flex">
+            <div>
+                <!-- ✅ Slightly updated headline copy for punch -->
+                <h1 class="text-xl md:text-3xl mb-4 split-type mt-6">Hi, I'm Dandu Madhukar Reddy</h1>
+                <p class="text-lg leading-relaxed mx-auto max-w-2xl mb-9">
+                    I am passionate about mastering the
+                    <span title="the interaction of two or more technologies to produce a combined effect greater than the sum of their separate effects" class="underline cursor-pointer">synergy</span>
+                    between Data Science and Fullstack Development to engineer groundbreaking solutions.
+                    I transform innovative concepts into dynamic, data-driven applications — bridging creativity with analytical precision.
+                </p>
+                <a href="./assets/resume.pdf" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out" download aria-label="Download resume PDF">
+                    Download My Resume
+                </a>
+            </div>
+            <div class="icons">
+                <!-- Icon slot preserved for future use -->
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="text-center py-24">
+            <div class="container">
+                <h2 class="text-3xl font-semibold mb-8">About Me</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <img src="./assets/dp.jpg" alt="Dandu Madhukar Reddy — Profile Picture" class="rounded-full mx-auto w-60 mb-8" loading="lazy">
+                        <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">I'm a passionate Fullstack Developer and Data Scientist. With a blend of creativity and analytical thinking, I craft innovative solutions that bridge the gap between technology and data.</p>
+                        <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">My journey into software development began with a curiosity for problem-solving and a knack for building things. Over the years, I've honed my skills across both frontend and backend technologies, enabling me to ship robust applications from concept to deployment.</p>
+                        <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">Beyond engineering, I'm deeply drawn to data science — from surfacing actionable insights to building predictive models that unlock new opportunities and drive smarter decisions.</p>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">Skills Snapshot</h3>
+                            <ul class="text-left">
+                                <li class="mb-2"><strong>Frontend:</strong> HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS</li>
+                                <li class="mb-2"><strong>Backend:</strong> Node.js, Express.js, MongoDB, Firebase, MySQL, PostgreSQL</li>
+                                <li class="mb-2"><strong>Data Science:</strong> Python, Pandas, NumPy, TensorFlow, Tableau, Power BI</li>
+                                <!-- ✅ Fixed typo: "Anlytics" → "Analytics" -->
+                                <li class="mb-2"><strong>CRO Analyst:</strong> GA4, Adobe Analytics, A/B Testing, Hotjar, Figma</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4">What Drives Me</h3>
+                            <ul class="text-left">
+                                <li class="mb-2">Exploring emerging technologies and their real-world applications</li>
+                                <li class="mb-2">Building scalable, user-centric products with clean architecture</li>
+                                <li class="mb-2">Continuous learning and pushing skill boundaries</li>
+                                <li class="mb-2">Contributing to open-source projects and the developer community</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <!-- ✅ Fixed typo: "TECHONOLOGIES" → "TECHNOLOGIES" -->
+        <section id="skills" class="text-center py-24 flex items-center justify-center flex-col">
+            <h2 class="text-3xl font-semibold mb-8">TECHNOLOGIES</h2>
+            <div class="scroller py-4">
+                <h2>Front-End</h2>
+                <ul class="tag-list scroller_inner flex" aria-label="Frontend technologies">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS & TS</li>
+                    <li>TAILWINDCSS</li>
+                    <li>REACT-JS</li>
+                    <li>NEXT.JS</li>
+                    <li>GSAP</li>
+                    <li>MUI</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS & TS</li>
+                    <li>TAILWINDCSS</li>
+                    <li>REACT-JS</li>
+                    <li>NEXT.JS</li>
+                    <li>GSAP</li>
+                    <li>MUI</li>
+                </ul>
+            </div>
+            <div class="scroller py-4">
+                <h2>Back-End</h2>
+                <ul class="tag-list scroller_inner flex" aria-label="Backend technologies">
+                    <li>MONGO-DB</li>
+                    <li>EXPRESS-JS</li>
+                    <li>NODE-JS</li>
+                    <li>FAST-API</li>
+                    <li>FIREBASE</li>
+                    <li>MY SQL</li>
+                    <li>POSTGRE SQL</li>
+                    <li>MONGO-DB</li>
+                    <li>EXPRESS-JS</li>
+                    <li>NODE-JS</li>
+                    <li>FAST-API</li>
+                    <li>FIREBASE</li>
+                    <li>MY SQL</li>
+                    <li>POSTGRE SQL</li>
+                </ul>
+            </div>
+            <div class="scroller py-4">
+                <h2>Data Science</h2>
+                <ul class="tag-list scroller_inner flex" aria-label="Data science technologies">
+                    <li>PYTHON</li>
+                    <li>TABLEAU</li>
+                    <li>POWER-BI</li>
+                    <li>PANDAS</li>
+                    <li>NUMPY</li>
+                    <li>NLP</li>
+                    <li>DEEP LEARNING</li>
+                    <li>STREAMLIT</li>
+                    <li>PYTHON</li>
+                    <li>TABLEAU</li>
+                    <li>POWER-BI</li>
+                    <li>PANDAS</li>
+                    <li>NUMPY</li>
+                    <li>NLP</li>
+                    <li>DEEP LEARNING</li>
+                    <li>STREAMLIT</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="text-center py-24">
+            <h2 class="text-3xl font-semibold mb-2">Projects</h2>
+            <!-- ✅ Added subtitle for context -->
+            <p class="text-sm opacity-60 mb-6 tracking-wide">A selection of things I've built</p>
+            <div class="buttons">
+                <button onclick="showAllProjects()" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">ALL</button>
+                <button onclick="filterProjects('fullstack')" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">FULLSTACK</button>
+                <button onclick="filterProjects('datascience')" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out my-4">DATA SCIENCE</button>
+            </div>
+            <div class="container">
+                <!-- Data Genie -->
+                <div class="card" data-category="datascience">
+                    <div class="card-image">
+                        <img src="./assets/eda.jpg" alt="Data Genie project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Data Genie</h2>
+                        <p class="card-body">Your personal AI assistant for data exploration and modelling. Forget cumbersome tools — Data Genie simplifies the process, empowering you to unlock valuable insights and build powerful models without the hassle.</p>
+                        <ul class="skill-set">
+                            <li>#Streamlit</li>
+                            <li>#Pandas</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://madhukar-reddy2002-eda-app-nmf7f8.streamlit.app/" target="_blank" aria-label="Visit Data Genie project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- IPL Guru -->
+                <div class="card" data-category="datascience">
+                    <div class="card-image">
+                        <img src="./assets/ipl.jpg" alt="IPL Guru project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">IPL Guru</h2>
+                        <p class="card-body">Become an IPL mastermind! This Tableau app lets you explore the rich history of the IPL from 2008 to 2018, uncovering hidden stats and insights that will transform you into a true cricket fanatic.</p>
+                        <ul class="skill-set">
+                            <li>#Tableau</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://public.tableau.com/app/profile/dandu.madhukar.reddy/viz/IPL_16771263300350/Dashboard5?publish=yes" target="_blank" aria-label="Visit IPL Guru project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Indian Agriculture Dashboard -->
+                <div class="card" data-category="datascience">
+                    <div class="card-image">
+                        <img src="./assets/agri.jpeg" alt="Indian Agriculture Dashboard project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Indian Agriculture Dashboard</h2>
+                        <p class="card-body">An interactive Streamlit dashboard exploring Indian agriculture data. Visualize crop production across states with dynamic charts and region-level breakdowns.</p>
+                        <ul class="skill-set">
+                            <li>#Streamlit</li>
+                            <li>#Plotly</li>
+                        </ul>
+                    </div>
+                    <!-- ✅ Fixed: missing closing > on </a> -->
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://cropanalysis.streamlit.app/" target="_blank" aria-label="Visit Indian Agriculture Dashboard project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Super-Story -->
+                <div class="card" data-category="datascience">
+                    <div class="card-image">
+                        <img src="./assets/superstore.jpeg" alt="Super-Story project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Super-Story</h2>
+                        <p class="card-body">Unleash the secrets in your Superstore data. This interactive Streamlit app empowers you to effortlessly explore, analyze, and visualize your sales data with actionable clarity.</p>
+                        <ul class="skill-set">
+                            <li>#Plotly</li>
+                            <li>#Python</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://superstorebyms.streamlit.app/" target="_blank" aria-label="Visit Super-Story project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Floral Sorcery -->
+                <div class="card" data-category="datascience">
+                    <div class="card-image">
+                        <img src="./assets/flowerapp.jpeg" alt="Floral Sorcery project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Floral Sorcery</h2>
+                        <p class="card-body">Upload any flower image and let the CNN model do the rest — predicting the flower type alongside a confidence score. A fun showcase of deep learning applied to image classification.</p>
+                        <ul class="skill-set">
+                            <li>#Streamlit</li>
+                            <li>#CNN</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://madhukar-reddy2002-streamlitflowersapp-app-kx1vpn.streamlit.app/" target="_blank" aria-label="Visit Floral Sorcery project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- My-Mate -->
+                <div class="card" data-category="fullstack">
+                    <div class="card-image">
+                        <img src="./assets/exp.jpeg" alt="My-Mate project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">My-Mate</h2>
+                        <p class="card-body">A Next.js + Firebase web app that combines a robust task manager with intuitive financial tracking — your productivity and finances, seamlessly in one place.</p>
+                        <ul class="skill-set">
+                            <li>#Next-js</li>
+                            <li>#Firebase</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://my-mate.vercel.app/" target="_blank" aria-label="Visit My-Mate project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Chit-Chat -->
+                <div class="card" data-category="fullstack">
+                    <div class="card-image">
+                        <img src="./assets/chatt.png" alt="Chit-Chat project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Chit-Chat</h2>
+                        <p class="card-body">A real-time chat application to connect with friends — and keep things fun when you're bored. Built with React and Firebase for instant, seamless messaging.</p>
+                        <ul class="skill-set">
+                            <li>#React-js</li>
+                            <li>#Firebase</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://chi-chat-psi.vercel.app/" target="_blank" aria-label="Visit Chit-Chat project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bookworm -->
+                <div class="card" data-category="fullstack">
+                    <div class="card-image">
+                        <img src="./assets/book.jpeg" alt="Bookworm project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Bookworm</h2>
+                        <p class="card-body">Your one-stop immersive reading companion. Dive into captivating stories, personalize your reading journey, and retain key insights — all in one beautifully crafted space.</p>
+                        <ul class="skill-set">
+                            <li>#Next-js</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://book-six-livid.vercel.app/" target="_blank" aria-label="Visit Bookworm project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Weather360 -->
+                <div class="card" data-category="fullstack">
+                    <div class="card-image">
+                        <img src="./assets/weather.jpeg" alt="Weather360 project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">Weather360</h2>
+                        <p class="card-body">Your ultimate weather companion — instant, accurate forecasts for any city around the globe. Know what to expect, anywhere and anytime, with just a few taps.</p>
+                        <ul class="skill-set">
+                            <li>#React-js</li>
+                            <li>#Axios</li>
+                        </ul>
+                    </div>
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://weather-360.vercel.app/" target="_blank" aria-label="Visit Weather360 project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SentiSight -->
+                <div class="card" data-category="fullstack">
+                    <div class="card-image">
+                        <img src="./assets/sentim.png" alt="SentiSight project" loading="lazy">
+                    </div>
+                    <div class="card-text">
+                        <h2 class="card-title">SentiSight</h2>
+                        <p class="card-body">Unsure of the emotional weight of your writing? SentiSight is your personal sentiment analysis tool, harnessing NLP to reveal the hidden emotions and tone within any text.</p>
+                        <ul class="skill-set">
+                            <li>#React-js</li>
+                            <li>#Axios</li>
+                        </ul>
+                    </div>
+                    <!-- ✅ Fixed: </div></a> order was wrong — now correctly wrapped -->
+                    <div class="card-price">
+                        <a rel="noopener noreferrer" href="https://sentiment-app-omega.vercel.app/" target="_blank" aria-label="Visit SentiSight project">
+                            <img src="./assets/visit3d.png" alt="Visit project">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-gray-800 text-white py-6">
+            <div class="container">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col justify-center items-center md:items-start">
+                        <h3 class="text-2xl font-semibold mb-3">Let's Connect!</h3>
+                        <p class="mb-4 text-gray-300 text-sm leading-relaxed">I'm always excited to collaborate on new projects and discuss data-driven solutions. Reach out anytime.</p>
+                        <a href="mailto:tomadhukarreddy@gmail.com" class="underline flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="Send email to Madhukar">
+                            <img src="./assets/gmail.png" alt="Gmail" class="h-10 w-10">
+                            <span>tomadhukarreddy@gmail.com</span>
+                        </a>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <!-- ✅ Fixed: invalid </img> closing tags replaced with proper structure -->
+                        <p class="text-sm text-gray-400 mb-3">Find me on</p>
+                        <div class="flex justify-center md:justify-start items-center gap-4">
+                            <a rel="noopener noreferrer" href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank" class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="LinkedIn profile">
+                                <img src="./assets/linkedin3d2.png" alt="LinkedIn" class="h-12 w-12">
+                                <span class="text-xs text-gray-400">LinkedIn</span>
+                            </a>
+                            <a rel="noopener noreferrer" href="https://github.com/Madhukar-Reddy2002" target="_blank" class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="GitHub profile">
+                                <img src="./assets/github3d-removebg-preview.png" alt="GitHub" class="h-12 w-12">
+                                <span class="text-xs text-gray-400">GitHub</span>
+                            </a>
+                            <a rel="noopener noreferrer" href="https://discord.com/channels/1202495888073695262/1202495888073695265" target="_blank" class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="Discord server">
+                                <img src="./assets/discord3d.png" alt="Discord" class="h-12 w-12">
+                                <span class="text-xs text-gray-400">Discord</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ✅ Footer copyright with subtle divider -->
+            <div class="footer-copy text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Dandu Madhukar Reddy. All rights reserved.</p>
+                <p class="mt-1">Designed with &#x2764; and a lot of ☕</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- ✅ Scroll-to-top button -->
+    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="./animations.js"></script>
+
+    <!-- ✅ Scroll-to-top visibility logic -->
+    <script>
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+    </script>
 </body>
+
 </html>
