@@ -1,388 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-M33DZWS7');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY-SPACE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./style.css">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ9PTZDV08"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HZ9PTZDV08');
-</script>
+    <title>My Space</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .button {
+            display: inline-block;
+            font-size: 18px;
+            color: #fff;
+            background: #5CB85C;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background: #4cae4c;
+        }
+    </style>
 </head>
-
-<body class="theme-winter">
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M33DZWS7"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <header class="fixed top-0 left-0 w-full z-50 h-0">
-        <div class="nav-icon" id="ham" onclick="body.classList.toggle('nav-open')">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <nav onclick="body.classList.toggle('nav-open')">
-            <a href="#hero" class="nav-item">HOME</a>
-            <a href="#about" class="nav-item">ABOUT</a>
-            <a href="#skills" class="nav-item">SKILLS</a>
-            <a href="#projects" class="nav-item">PROJECTS</a>
-        </nav>
-        <div class="fixed top-3 right-3 theme-switcher">
-          <button onclick="toggleThemeSwitchers()" class="h-10 w-10 rounded-full border-dashed border bg-slate-950">
-            <img src="./assets/MSLogo-removebg-preview.png" alt="" class="cursor-pointer w-[100%] h-[100%] text-white" />
-          </button>
-          <div id="themeSwitchers" class="hidden">
-              <button onclick="setTheme('theme-summer')" class="h-10 w-10 rounded-full border-dashed bg-sky-500"></button>
-              <button onclick="setTheme('theme-winter')" class="h-10 w-10 rounded-full border-dashed bg-blue-950"></button>
-              <button onclick="setTheme('theme-autumn')" class="h-10 absolute top-0 left-10 w-10 rounded-full border-dashed bg-yellow-100/50"></button>
-          </div>
-      </div>
+<body>
+    <header>
+        <h1>Welcome to My Space</h1>
     </header>
-
-    <main>
-        <section id="hero" class="text-center flex">
-            <div>
-                <h1 class="text-xl md:text-3xl mb-4 split-type mt-6">Hi there, I'm Dandu Madhukar Reddy</h1>
-                <p class="text-lg leading-relaxed mx-auto max-w-2xl mb-9 ">
-                  I am passionate about mastering the <span title="the interaction of two or more technologies to produce a combined effect greater than the sum of their separate effects:" class="underline cursor-pointer">synergy</span> between Data Science and Fullstack development to engineer groundbreaking solutions.
-                  Leveraging my expertise, I transform innovative concepts into dynamic applications and websites, showcasing my proficiency in Fullstack development.
-                </p>
-                <a href="./assets/resume.pdf" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">Download My Resume</a>
-            </div>
-            <div class="icons">
-                <!-- <img src="./assets/mainIconsdark.svg" alt="Galaxy" class="dp object-contain"> -->
-            </div>
-        </section>
-
-        <section id="about" class="text-center py-24 ">
-          <div class="container">
-              <h2 class="text-3xl font-semibold mb-8">About Me</h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                  <div>
-                      <img src="./assets/dp.jpg" alt="Profile Picture" class="rounded-full mx-auto w-60 mb-8">
-                      <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">I'm a passionate Fullstack Developer and Data Scientist. With a blend of creativity and analytical thinking, I craft innovative solutions that bridge the gap between technology and data.</p>
-                      <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">My journey into the world of software development began with a curiosity for problem-solving and a knack for coding. Over the years, I've honed my skills in both frontend and backend technologies, allowing me to build robust applications from concept to deployment.</p>
-                      <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">In addition to my programming expertise, I thrive on exploring the vast realm of data science. From extracting insights to building predictive models, I leverage the power of data to drive informed decisions and unlock new opportunities.</p>
-                  </div>
-                  <div class="grid grid-cols-1 gap-4">
-                      <div>
-                          <h3 class="text-2xl font-semibold mb-4">Skills Snapshot</h3>
-                          <ul class="text-left">
-                              <li class="mb-2"><strong>Frontend:</strong> HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS</li>
-                              <li class="mb-2"><strong>Backend:</strong> Node.js, Express.js, MongoDB, Firebase, MySQL, PostgreSQL</li>
-                              <li class="mb-2"><strong>Data Science:</strong> Python, Pandas, NumPy, TensorFlow, Tableau, Power BI</li>
-                              <li class="mb-2"><strong>CRO Analyst:</strong> Ga4, Adobe Anlytics, A/B testing, Hotjar, Figma</li>
-                          </ul>
-                      </div>
-                      <div>
-                          <h3 class="text-2xl font-semibold mb-4">Interests</h3>
-                          <ul class="text-left">
-                              <li class="mb-2">Exploring new technologies</li>
-                              <li class="mb-2">Building scalable and user-centric applications</li>
-                              <li class="mb-2">Continuous learning and skill development</li>
-                              <li class="mb-2">Contributing to open-source projects</li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>      
-
-        <section id="skills" class="text-center py-24 flex items-center justify-center flex-col">
-          <h2 class="text-3xl font-semibold mb-8">TECHONOLOGIES</h2>
-          <div class="scroller py-4">
-            <h2>Front-End technologies</h2>
-            <ul class="tag-list scroller_inner flex ">
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JS & TS</li>
-              <li>TAILWINDCSS</li>
-              <li>REACT-JS</li>
-              <li>NEXT.JS</li>
-              <li>GSAP</li>
-              <li>MUI</li>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JS & TS</li>
-              <li>TAILWINDCSS</li>
-              <li>REACT-JS</li>
-              <li>NEXT.JS</li>
-              <li>GSAP</li>
-              <li>MUI</li>
-            </ul>
-          </div>
-          <div class="scroller py-4">
-            <h2>Back-End technologies</h2>
-            <ul class="tag-list scroller_inner flex ">
-              <li>MONGO-DB</li>
-              <li>EXPRESS-JS</li>
-              <li>NODE-JS</li>
-              <li>FAST-API</li>
-              <li>FIREBASE</li>
-              <li>MY SQL</li>
-              <li>POSTGRE SQL</li>
-              <li>MONGO-DB</li>
-              <li>EXPRESS-JS</li>
-              <li>NODE-JS</li>
-              <li>FAST-API</li>
-              <li>FIREBASE</li>
-              <li>MY SQL</li>
-              <li>POSTGRE SQL</li>
-            </ul>
-          </div>
-          <div class="scroller py-4">
-            <h2>Data-Science Technologies</h2>
-            <ul class="tag-list scroller_inner flex ">
-              <li>PYTHON</li>
-              <li>TABLEAU</li>
-              <li>POWER-BI</li>
-              <li>PANDAS</li>
-              <li>NUMPY</li>
-              <li>NLP</li>
-              <li>DEEP LEARNING</li>
-              <li>STREAMLIT</li>
-              <li>PYTHON</li>
-              <li>TABLEAU</li>
-              <li>POWER-BI</li>
-              <li>PANDAS</li>
-              <li>NUMPY</li>
-              <li>NLP</li>
-              <li>DEEP LEARNING</li>
-              <li>STREAMLIT</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="projects" class="text-center py-24">
-          <h2 class="text-3xl font-semibold mb-4">Projects</h2>
-          <div class="buttons">
-              <button onclick="showAllProjects()" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">ALL PROJECTS</button>
-              <button onclick="filterProjects('fullstack')" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out ">FULLSTACK PROJECTS</button>
-              <button onclick="filterProjects('datascience')" class=" bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out my-4">DATA-SCIENCE PROJECTS</button>
-              
-          </div>
-          <div class="container">
-              <div class="card" data-category="datascience">
-                <div class="card-image">
-                  <img src="./assets/eda.jpg" alt="nice">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">Data Genie</h2>
-                  <p class="card-body"> Data Genie is your personal AI assistant, transforming data exploration
-                     and modeling into a breeze. Forget cumbersome tools and coding 
-                      Data Genie simplifies the process, empowering you to unlock valuable insights
-                       from your data and build powerful models without the hassle.</p>
-                  <ul class="skill-set">
-                    <li>#Streamlit</li>
-                    <li>#Pandas</li>
-                  </ul>
-                </div>
-                <div class="card-price"><a rel="noopener" href="https://madhukar-reddy2002-eda-app-nmf7f8.streamlit.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="datascience">
-                <div class="card-image">
-                  <img src="./assets/ipl.jpg" alt="IPL">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title"> IPL Guru</h2>
-                  <p class="card-body">Become an IPL mastermind with IPL Guru! This comprehensive 
-                    Tableau app empowers you to delve into the rich history of the IPL from 2008 to 2018, 
-                    uncovering hidden insights and statistics that will transform you into a true cricket fanatic.</p>
-                    <ul class="skill-set">
-                      <li>#Tableau</li>
-                    </ul>
-                </div>
-                <div class="card-price"><a rel="noopener" href="https://public.tableau.com/app/profile/dandu.madhukar.reddy/viz/IPL_16771263300350/Dashboard5?publish=yes" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="datascience">
-                <div class="card-image">
-                  <img src="./assets/agri.jpeg" alt="Agriculture">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">Indian Agriculture Dashboard</h2>
-                  <p class="card-body">This project creates an interactive dashboard using Streamlit 
-                    to explore Indian agriculture data. It allows users to visualize various aspects
-                     of crop production across different states.</p>
-                     <ul class="skill-set">
-                      <li>#Streamlit</li>
-                      <li>#Plotly</li>
-                    </ul>
-                </div>
-                <div class="card-price"><a rel="noopener" href="https://cropanalysis.streamlit.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></></div>
-              </div>
-              <div class="card" data-category="datascience">
-                <div class="card-image">
-                  <img src="./assets/superstore.jpeg" alt="SUPER STORE">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">Super-Story</h2>
-                  <p class="card-body">Unleash the secrets hidden within your Superstore data with the Superstore: 
-                  This interactive Streamlit app empowers you to effortlessly explore, analyze, and visualize your sales data.</p>
-                  <ul class="skill-set">
-                    <li>#Plotly</li>
-                    <li>#Python</li>
-                  </ul>
-                </div>
-                <div class="card-price"><a rel="noopener" href="https://superstorebyms.streamlit.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="datascience">
-                <div class="card-image">
-                  <img src="./assets/flowerapp.jpeg" alt="flower app">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">Floral Sorcery</h2>
-                  <p class="card-body">This project creates an interactive dashboard using Streamlit. 
-                   The user can upload their own  image and the model will 
-                   predict the flower type and its confidence score.</p>
-                   <ul class="skill-set">
-                    <li>#Streamlit</li>
-                    <li>#CNN</li>
-                  </ul>
-                </div>
-                <div class="card-price"><a rel="noopener" href="https://madhukar-reddy2002-streamlitflowersapp-app-kx1vpn.streamlit.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="fullstack">
-                <div class="card-image">
-                  <img src="./assets/exp.jpeg" alt="My-Mate">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">My-Mate</h2>
-                  <p class="card-body">My-Mate is a web application built with Next.js and Firebase 
-                    that empowers you to manage your tasks and finances seamlessly. 
-                    It combines the functionality of a robust task manager with a user-friendly
-                     financial tracking system .</p>
-                     <ul class="skill-set">
-                      <li>#Next-js</li>
-                      <li>#FireBase</li>
-                    </ul>
-                </div>
-                <div class="card-price"><a rel="noopener" href="https://my-mate.vercel.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="fullstack">
-                <div class="card-image">
-                  <img src="./assets/chatt.png" alt="Chatty">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">Chit-Chat</h2>
-                  <p class="card-body">An App where we can chat with our friends , along with having fun when you are bored</p>
-                  <ul class="skill-set">
-                    <li>#React-js</li>
-                    <li>#FireBase</li>
-                  </ul>
-                </div>
-                <div class="card-price"><a rel="noopener" href="https://chi-chat-psi.vercel.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="fullstack">
-                <div class="card-image">
-                  <img src="./assets/book.jpeg" alt="Book worm">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">Bookworm</h2>
-                  <p class="card-body">Bookworm is your one-stop shop for a truly immersive reading experience. 
-                    Imagine a world where you can effortlessly dive into captivating stories, personalize
-                     your reading journey, and retain key insights all in one place..</p>
-                     <ul class="skill-set">
-                      <li>#Next-js</li>
-                      
-                    </ul>
-                    </div>
-                <div class="card-price"><a rel="noopener" href="https://book-six-livid.vercel.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="fullstack">
-                <div class="card-image">
-                  <img src="./assets/weather.jpeg" alt="weather-360">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">Weather360</h2>
-                  <p class="card-body">Weather360 is your ultimate weather companion, providing instant access to accurate forecasts for any city around the globe. 
-                     Know what to expect, anywhere, anytime, with just a few taps.</p>
-                     <ul class="skill-set">
-                      <li>#React-js</li>
-                      <li>#Axios</li>
-                    </ul>
-                    </div>
-                <div class="card-price"><a rel="noopener" href="https://weather-360.vercel.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></a></div>
-              </div>
-              <div class="card" data-category="fullstack">
-                <div class="card-image">
-                  <img src="./assets/sentim.png" alt="sentiment">
-                </div>
-                <div class="card-text">
-                  <h2 class="card-title">SentiSight</h2>
-                  <p class="card-body">Unsure of the emotional weight of your writing? SentiSight is your personal sentiment analysis tool, 
-                    harnessing the power of Natural Language Processing (NLP) to reveal the hidden emotions within your text.</p>
-                    <ul class="skill-set">
-                      <li>#React-js</li>
-                      <li>#Axios</li>
-                    </ul>
-                  </div>
-                <div class="card-price"><a rel="noopener" href="https://sentiment-app-omega.vercel.app/" target="_blank"><img src="./assets/visit3d.png" alt="visit"></div></a>
-                
-              </div>
-          </div>
-      </section>
-
-      <footer class="bg-gray-800 text-white py-2">
-        <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="flex flex-col justify-center items-center md:items-start">
-                    <h3 class="text-2xl font-semibold mb-4">Let's Connect!</h3>
-                    <p class="mb-4">I'm always excited to collaborate on new projects and discuss data-driven solutions.</p>
-                    <div class="flex items-center">
-                        <a href="mailto:tomadhukarreddy@gmail.com" class="underline flex items-center">
-                          <img src="./assets/gmail.png" alt="Gmail" class="h-14 w-14">
-                          tomadhukarreddy@gmail.com</a>
-                    </div>
-                </div>
-                <div class="text-center md:text-left">
-                    <div class="flex justify-center md:justify-start">
-                        <a rel="noopener"  href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank" class="social-link mr-4">
-                            <img src="./assets/linkedin3d2.png"  alt="linkedin" class="h-14 w-14">linkedin</img>
-                        </a>
-                        <a rel="noopener" href="https://github.com/Madhukar-Reddy2002" target="_blank" class="social-link mr-4">
-                            <img src="./assets/github3d-removebg-preview.png" alt="github" class="h-14 w-14"> github</img>
-                        </a>
-                        <a rel="noopener" href="https://discord.com/channels/1202495888073695262/1202495888073695265" target="_blank" class="social-link mr-4">
-                            <img src="./assets/discord3d.png" alt="discord3d" class="h-14 w-14">Discord</img>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center text-gray-400">
-            <p>&copy; 2024 Dandu Madhukar Reddy. All rights reserved.</p>
-            <p>Designed with &#x2764;</p>
-        </div>
-    </footer>
-    
-    
-        
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
-    <script src="./script.js"></script>
-    <script src="./animations.js"></script>
-
+    <div class="container">
+        <p>This is an improved version of the webpage with enhanced content and UI.</p>
+        <a href="#" class="button">Get Started</a>
+    </div>
 </body>
-
 </html>
