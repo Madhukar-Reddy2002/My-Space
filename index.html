@@ -12,11 +12,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ✅ Added meta description for SEO -->
     <meta name="description" content="Dandu Madhukar Reddy — Fullstack Developer & Data Scientist passionate about building data-driven applications and innovative web experiences.">
     <title>MY-SPACE | Dandu Madhukar Reddy</title>
 
-    <!-- ✅ Added Google Fonts for better typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -24,7 +22,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./style.css">
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ9PTZDV08"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -34,86 +31,203 @@
     </script>
 
     <style>
-        /* ✅ Apply imported fonts site-wide */
-        body {
-            font-family: 'DM Sans', sans-serif;
-        }
-        h1, h2, h3, .nav-item {
-            font-family: 'Syne', sans-serif;
+        /* ─── Base Typography ─────────────────────────── */
+        body { font-family: 'DM Sans', sans-serif; }
+        h1, h2, h3, .nav-item, .card-title { font-family: 'Syne', sans-serif; }
+        .tag-list li { font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.06em; }
+        .skill-set li { font-size: 0.72rem; letter-spacing: 0.05em; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+
+        /* ─── Scroll Progress Bar ──────────────────────── */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0;
+            height: 2.5px; width: 0%;
+            background: linear-gradient(to right, #6366f1, #a78bfa, #38bdf8);
+            z-index: 9999;
+            transition: width 0.08s linear;
         }
 
-        /* ✅ Scroll-to-top button */
-        #scrollTopBtn {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            z-index: 999;
-            background: rgba(30, 41, 59, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: #fff;
-            width: 2.75rem;
-            height: 2.75rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* ─── MENU label under hamburger ───────────────── */
+        .nav-icon-wrapper {
+            position: fixed; top: 0.55rem; left: 0.7rem;
+            z-index: 100;
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
             cursor: pointer;
-            opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s ease;
+        }
+        .nav-menu-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.52rem; letter-spacing: 0.15em;
+            color: rgba(255,255,255,0.5);
+            user-select: none; transition: color 0.2s;
+        }
+        .nav-icon-wrapper:hover .nav-menu-label { color: rgba(255,255,255,0.95); }
+
+        /* ─── Theme switcher: hover tooltip ────────────── */
+        .theme-switcher-wrap { position: fixed; top: 0.75rem; right: 0.75rem; z-index: 100; }
+        .theme-hint {
+            position: absolute;
+            top: 50%; right: calc(100% + 10px);
+            transform: translateY(-50%);
+            white-space: nowrap;
+            background: rgba(15,23,42,0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.85);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.68rem; letter-spacing: 0.07em;
+            padding: 0.3rem 0.7rem; border-radius: 999px;
+            pointer-events: none; opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .theme-hint::after {
+            content: '';
+            position: absolute; right: -5px; top: 50%;
+            transform: translateY(-50%);
+            border: 5px solid transparent;
+            border-left-color: rgba(15,23,42,0.9);
+        }
+        .theme-switcher-inner:hover .theme-hint { opacity: 1; }
+
+        /* First-visit pulse ring on theme button */
+        @keyframes themePulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.65); }
+            50%      { box-shadow: 0 0 0 8px rgba(99,102,241,0); }
+        }
+        .theme-btn-pulse { animation: themePulse 1.8s ease-in-out 4; }
+
+        /* Swatch name tooltips */
+        .theme-swatch { position: relative; }
+        .theme-swatch::after {
+            content: attr(data-name);
+            position: absolute; bottom: calc(100% + 6px); left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15,23,42,0.92); color: #fff;
+            font-size: 0.6rem; letter-spacing: 0.07em;
+            padding: 2px 8px; border-radius: 4px;
+            white-space: nowrap; opacity: 0; pointer-events: none;
+            transition: opacity 0.2s; font-family: 'DM Sans', sans-serif;
+        }
+        .theme-swatch:hover::after { opacity: 1; }
+
+        /* Switcher panel */
+        #themeSwitchers {
+            position: absolute; top: 0; right: 3rem;
+            display: none; gap: 8px; align-items: center;
+        }
+        #themeSwitchers.open { display: flex; }
+
+        /* ─── Hero: available badge ─────────────────────── */
+        .available-badge {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(16,185,129,0.1);
+            border: 1px solid rgba(16,185,129,0.3);
+            color: #6ee7b7;
+            font-size: 0.66rem; letter-spacing: 0.09em;
+            padding: 4px 13px; border-radius: 999px;
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 1rem;
+        }
+        .available-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: #10b981; flex-shrink: 0;
+        }
+        @keyframes statusPulse {
+            0%,100% { opacity: 1; transform: scale(1); }
+            50%      { opacity: 0.35; transform: scale(0.8); }
+        }
+        .available-dot { animation: statusPulse 2.2s ease-in-out infinite; }
+
+        /* ─── Hero stats bar ────────────────────────────── */
+        .hero-stats {
+            display: flex; justify-content: center;
+            gap: 1.8rem; flex-wrap: wrap;
+            margin-top: 1.8rem;
+        }
+        .hero-stat { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+        .hero-stat-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.55rem; font-weight: 800; line-height: 1;
+            background: linear-gradient(135deg, #a78bfa, #38bdf8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-stat-label { font-size: 0.62rem; letter-spacing: 0.1em; opacity: 0.45; text-transform: uppercase; }
+        .stats-divider { width: 1px; height: 2.1rem; background: rgba(255,255,255,0.1); align-self: center; }
+
+        /* ─── Scroll-down cue ───────────────────────────── */
+        .scroll-cue {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 5px;
+            cursor: pointer; opacity: 0.4; transition: opacity 0.4s ease;
+            text-decoration: none; color: inherit;
+        }
+        .scroll-cue:hover { opacity: 0.85; }
+        .scroll-cue span { font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; }
+        @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
+        .scroll-cue svg { animation: bounce 1.7s ease-in-out infinite; }
+        #hero { position: relative; }
+
+        /* ─── Project filter buttons ────────────────────── */
+        .filter-btn {
+            background: rgba(30,41,59,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.55);
+            padding: 0.4rem 1.2rem; border-radius: 999px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.73rem; letter-spacing: 0.07em;
+            cursor: pointer; transition: all 0.22s ease;
+        }
+        .filter-btn:hover {
+            background: rgba(99,102,241,0.2);
+            border-color: rgba(99,102,241,0.45);
+            color: #fff;
+        }
+        .filter-btn.active {
+            background: rgba(99,102,241,0.3);
+            border-color: #6366f1; color: #fff;
+            box-shadow: 0 0 0 1px #6366f1 inset;
+        }
+
+        /* Count badge on filter buttons */
+        .count-badge {
+            display: inline-block;
+            background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.35);
+            color: #a5b4fc; font-size: 0.62rem; letter-spacing: 0.07em;
+            padding: 1px 7px; border-radius: 999px;
+            font-family: 'DM Sans', sans-serif; margin-left: 5px; vertical-align: middle;
+        }
+
+        /* Card fade-in on filter */
+        .card { transition: opacity 0.3s ease, transform 0.3s ease; }
+
+        /* ─── Scroll-to-top button ──────────────────────── */
+        #scrollTopBtn {
+            position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+            background: rgba(30,41,59,0.85); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.15); color: #fff;
+            width: 2.75rem; height: 2.75rem; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0; transform: translateY(12px);
+            transition: opacity 0.3s, transform 0.3s, background 0.2s;
             pointer-events: none;
         }
-        #scrollTopBtn.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        #scrollTopBtn:hover {
-            background: rgba(30, 41, 59, 1);
-        }
-        #scrollTopBtn svg {
-            width: 1.1rem;
-            height: 1.1rem;
-        }
+        #scrollTopBtn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        #scrollTopBtn:hover   { background: rgba(30,41,59,1); }
+        #scrollTopBtn svg     { width: 1.1rem; height: 1.1rem; }
 
-        /* ✅ Section divider subtle line */
-        section + section {
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        /* ─── Section divider ───────────────────────────── */
+        section + section { border-top: 1px solid rgba(255,255,255,0.05); }
 
-        /* ✅ Skill badge styling refinement */
-        .skill-set li {
-            font-size: 0.72rem;
-            letter-spacing: 0.05em;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-        }
-
-        /* ✅ Card title font */
-        .card-title {
-            font-family: 'Syne', sans-serif;
-        }
-
-        /* ✅ Footer polish */
+        /* ─── Footer ────────────────────────────────────── */
         footer .footer-copy {
             border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1rem;
-            padding-top: 0.75rem;
+            margin-top: 1rem; padding-top: 0.75rem;
         }
 
-        /* ✅ Active nav highlight on scroll - base ready */
-        .nav-item.active {
-            opacity: 1;
+        /* ─── Active nav item ───────────────────────────── */
+        .nav-item { transition: opacity 0.2s; }
+        .nav-item.is-active {
+            opacity: 1 !important;
             text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-        /* ✅ Tag list scroller refined */
-        .tag-list li {
-            font-family: 'Syne', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 0.06em;
+            text-underline-offset: 5px;
         }
     </style>
 </head>
@@ -122,64 +236,134 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M33DZWS7"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- ✅ Scroll progress bar -->
+    <div id="scroll-progress"></div>
 
     <header class="fixed top-0 left-0 w-full z-50 h-0">
-        <!-- ✅ Fixed: body.classList → document.body.classList -->
-        <div class="nav-icon" id="ham" onclick="document.body.classList.toggle('nav-open')" aria-label="Toggle navigation" role="button" tabindex="0">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+
+        <!-- ✅ Hamburger + "MENU" label — makes it obvious what the icon does -->
+        <div class="nav-icon-wrapper" id="ham-wrapper"
+             onclick="document.body.classList.toggle('nav-open')"
+             role="button" aria-label="Toggle navigation" tabindex="0">
+            <div class="nav-icon" id="ham">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+            <span class="nav-menu-label">MENU</span>
         </div>
+
         <nav onclick="document.body.classList.toggle('nav-open')" aria-label="Main navigation">
-            <a href="#hero" class="nav-item">HOME</a>
-            <a href="#about" class="nav-item">ABOUT</a>
-            <a href="#skills" class="nav-item">SKILLS</a>
-            <a href="#projects" class="nav-item">PROJECTS</a>
+            <a href="#hero"     class="nav-item" data-section="hero">HOME</a>
+            <a href="#about"    class="nav-item" data-section="about">ABOUT</a>
+            <a href="#skills"   class="nav-item" data-section="skills">SKILLS</a>
+            <a href="#projects" class="nav-item" data-section="projects">PROJECTS</a>
         </nav>
-        <div class="fixed top-3 right-3 theme-switcher">
-            <button onclick="toggleThemeSwitchers()" class="h-10 w-10 rounded-full border-dashed border bg-slate-950" aria-label="Toggle theme switcher">
-                <img src="./assets/MSLogo-removebg-preview.png" alt="MY-SPACE logo" class="cursor-pointer w-[100%] h-[100%] text-white" />
-            </button>
-            <div id="themeSwitchers" class="hidden">
-                <button onclick="setTheme('theme-summer')" class="h-10 w-10 rounded-full border-dashed bg-sky-500" aria-label="Summer theme"></button>
-                <button onclick="setTheme('theme-winter')" class="h-10 w-10 rounded-full border-dashed bg-blue-950" aria-label="Winter theme"></button>
-                <button onclick="setTheme('theme-autumn')" class="h-10 absolute top-0 left-10 w-10 rounded-full border-dashed bg-yellow-100/50" aria-label="Autumn theme"></button>
+
+        <!-- ✅ Theme switcher — hover tooltip + swatch names + first-visit pulse -->
+        <div class="theme-switcher-wrap">
+            <div class="theme-switcher-inner" style="position:relative;">
+                <!-- Tooltip shown on hover -->
+                <span class="theme-hint">🎨 Change Theme</span>
+                <button id="themeMasterBtn"
+                        onclick="toggleThemeSwitchers()"
+                        class="h-10 w-10 rounded-full border-dashed border bg-slate-950"
+                        aria-label="Toggle theme switcher">
+                    <img src="./assets/MSLogo-removebg-preview.png" alt="MY-SPACE logo"
+                         class="cursor-pointer w-full h-full" />
+                </button>
+            </div>
+            <!-- Swatch panel -->
+            <div id="themeSwitchers">
+                <button onclick="setTheme('theme-summer')"
+                        class="h-10 w-10 rounded-full border-dashed bg-sky-500 theme-swatch"
+                        data-name="Summer" aria-label="Summer theme"></button>
+                <button onclick="setTheme('theme-winter')"
+                        class="h-10 w-10 rounded-full border-dashed bg-blue-950 theme-swatch"
+                        data-name="Winter" aria-label="Winter theme"></button>
+                <button onclick="setTheme('theme-autumn')"
+                        class="h-10 w-10 rounded-full border-dashed bg-yellow-100/50 theme-swatch"
+                        data-name="Autumn" aria-label="Autumn theme"></button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- HERO SECTION -->
+
+        <!-- ══════════════════════════════════════ -->
+        <!-- HERO                                   -->
+        <!-- ══════════════════════════════════════ -->
         <section id="hero" class="text-center flex">
             <div>
-                <!-- ✅ Slightly updated headline copy for punch -->
-                <h1 class="text-xl md:text-3xl mb-4 split-type mt-6">Hi, I'm Dandu Madhukar Reddy</h1>
-                <p class="text-lg leading-relaxed mx-auto max-w-2xl mb-9">
+                <!-- ✅ "Available" trust signal — instantly readable status -->
+                <div style="display:flex;justify-content:center;margin-bottom:1rem;">
+                    <span class="available-badge">
+                        <span class="available-dot"></span>
+                        Available for opportunities
+                    </span>
+                </div>
+
+                <h1 class="text-xl md:text-3xl mb-4 split-type mt-2">Hi, I'm Dandu Madhukar Reddy</h1>
+                <p class="text-lg leading-relaxed mx-auto max-w-2xl mb-7">
                     I am passionate about mastering the
-                    <span title="the interaction of two or more technologies to produce a combined effect greater than the sum of their separate effects" class="underline cursor-pointer">synergy</span>
+                    <span title="the interaction of two or more technologies to produce a combined effect greater than the sum of their separate effects"
+                          class="underline cursor-pointer">synergy</span>
                     between Data Science and Fullstack Development to engineer groundbreaking solutions.
                     I transform innovative concepts into dynamic, data-driven applications — bridging creativity with analytical precision.
                 </p>
-                <a href="./assets/resume.pdf" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out" download aria-label="Download resume PDF">
-                    Download My Resume
+                <a href="./assets/resume.pdf" download
+                   class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out"
+                   aria-label="Download resume PDF">
+                    ↓ Download My Resume
                 </a>
+
+                <!-- ✅ Stats bar — at-a-glance social proof -->
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">10+</span>
+                        <span class="hero-stat-label">Projects</span>
+                    </div>
+                    <div class="stats-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">4</span>
+                        <span class="hero-stat-label">Tech Stacks</span>
+                    </div>
+                    <div class="stats-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">DS</span>
+                        <span class="hero-stat-label">+ Fullstack</span>
+                    </div>
+                    <div class="stats-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num">CRO</span>
+                        <span class="hero-stat-label">Analyst</span>
+                    </div>
+                </div>
             </div>
-            <div class="icons">
-                <!-- Icon slot preserved for future use -->
-            </div>
+
+            <div class="icons"></div>
+
+            <!-- ✅ Scroll-down cue — fades after user scrolls -->
+            <a href="#about" class="scroll-cue" id="scrollCue" aria-label="Scroll to about">
+                <span>Scroll</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </a>
         </section>
 
-        <!-- ABOUT SECTION -->
+        <!-- ══════════════════════════════════════ -->
+        <!-- ABOUT                                  -->
+        <!-- ══════════════════════════════════════ -->
         <section id="about" class="text-center py-24">
             <div class="container">
                 <h2 class="text-3xl font-semibold mb-8">About Me</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                     <div>
-                        <img src="./assets/dp.jpg" alt="Dandu Madhukar Reddy — Profile Picture" class="rounded-full mx-auto w-60 mb-8" loading="lazy">
+                        <img src="./assets/dp.jpg" alt="Dandu Madhukar Reddy — Profile Picture"
+                             class="rounded-full mx-auto w-60 mb-8" loading="lazy">
                         <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">I'm a passionate Fullstack Developer and Data Scientist. With a blend of creativity and analytical thinking, I craft innovative solutions that bridge the gap between technology and data.</p>
                         <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">My journey into software development began with a curiosity for problem-solving and a knack for building things. Over the years, I've honed my skills across both frontend and backend technologies, enabling me to ship robust applications from concept to deployment.</p>
                         <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">Beyond engineering, I'm deeply drawn to data science — from surfacing actionable insights to building predictive models that unlock new opportunities and drive smarter decisions.</p>
@@ -191,7 +375,6 @@
                                 <li class="mb-2"><strong>Frontend:</strong> HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS</li>
                                 <li class="mb-2"><strong>Backend:</strong> Node.js, Express.js, MongoDB, Firebase, MySQL, PostgreSQL</li>
                                 <li class="mb-2"><strong>Data Science:</strong> Python, Pandas, NumPy, TensorFlow, Tableau, Power BI</li>
-                                <!-- ✅ Fixed typo: "Anlytics" → "Analytics" -->
                                 <li class="mb-2"><strong>CRO Analyst:</strong> GA4, Adobe Analytics, A/B Testing, Hotjar, Figma</li>
                             </ul>
                         </div>
@@ -209,283 +392,156 @@
             </div>
         </section>
 
-        <!-- SKILLS SECTION -->
-        <!-- ✅ Fixed typo: "TECHONOLOGIES" → "TECHNOLOGIES" -->
+        <!-- ══════════════════════════════════════ -->
+        <!-- SKILLS                                 -->
+        <!-- ══════════════════════════════════════ -->
         <section id="skills" class="text-center py-24 flex items-center justify-center flex-col">
             <h2 class="text-3xl font-semibold mb-8">TECHNOLOGIES</h2>
             <div class="scroller py-4">
                 <h2>Front-End</h2>
                 <ul class="tag-list scroller_inner flex" aria-label="Frontend technologies">
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JS & TS</li>
-                    <li>TAILWINDCSS</li>
-                    <li>REACT-JS</li>
-                    <li>NEXT.JS</li>
-                    <li>GSAP</li>
-                    <li>MUI</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JS & TS</li>
-                    <li>TAILWINDCSS</li>
-                    <li>REACT-JS</li>
-                    <li>NEXT.JS</li>
-                    <li>GSAP</li>
-                    <li>MUI</li>
+                    <li>HTML</li><li>CSS</li><li>JS &amp; TS</li><li>TAILWINDCSS</li>
+                    <li>REACT-JS</li><li>NEXT.JS</li><li>GSAP</li><li>MUI</li>
+                    <li>HTML</li><li>CSS</li><li>JS &amp; TS</li><li>TAILWINDCSS</li>
+                    <li>REACT-JS</li><li>NEXT.JS</li><li>GSAP</li><li>MUI</li>
                 </ul>
             </div>
             <div class="scroller py-4">
                 <h2>Back-End</h2>
                 <ul class="tag-list scroller_inner flex" aria-label="Backend technologies">
-                    <li>MONGO-DB</li>
-                    <li>EXPRESS-JS</li>
-                    <li>NODE-JS</li>
-                    <li>FAST-API</li>
-                    <li>FIREBASE</li>
-                    <li>MY SQL</li>
-                    <li>POSTGRE SQL</li>
-                    <li>MONGO-DB</li>
-                    <li>EXPRESS-JS</li>
-                    <li>NODE-JS</li>
-                    <li>FAST-API</li>
-                    <li>FIREBASE</li>
-                    <li>MY SQL</li>
-                    <li>POSTGRE SQL</li>
+                    <li>MONGO-DB</li><li>EXPRESS-JS</li><li>NODE-JS</li><li>FAST-API</li>
+                    <li>FIREBASE</li><li>MY SQL</li><li>POSTGRE SQL</li>
+                    <li>MONGO-DB</li><li>EXPRESS-JS</li><li>NODE-JS</li><li>FAST-API</li>
+                    <li>FIREBASE</li><li>MY SQL</li><li>POSTGRE SQL</li>
                 </ul>
             </div>
             <div class="scroller py-4">
                 <h2>Data Science</h2>
                 <ul class="tag-list scroller_inner flex" aria-label="Data science technologies">
-                    <li>PYTHON</li>
-                    <li>TABLEAU</li>
-                    <li>POWER-BI</li>
-                    <li>PANDAS</li>
-                    <li>NUMPY</li>
-                    <li>NLP</li>
-                    <li>DEEP LEARNING</li>
-                    <li>STREAMLIT</li>
-                    <li>PYTHON</li>
-                    <li>TABLEAU</li>
-                    <li>POWER-BI</li>
-                    <li>PANDAS</li>
-                    <li>NUMPY</li>
-                    <li>NLP</li>
-                    <li>DEEP LEARNING</li>
-                    <li>STREAMLIT</li>
+                    <li>PYTHON</li><li>TABLEAU</li><li>POWER-BI</li><li>PANDAS</li>
+                    <li>NUMPY</li><li>NLP</li><li>DEEP LEARNING</li><li>STREAMLIT</li>
+                    <li>PYTHON</li><li>TABLEAU</li><li>POWER-BI</li><li>PANDAS</li>
+                    <li>NUMPY</li><li>NLP</li><li>DEEP LEARNING</li><li>STREAMLIT</li>
                 </ul>
             </div>
         </section>
 
-        <!-- PROJECTS SECTION -->
+        <!-- ══════════════════════════════════════ -->
+        <!-- PROJECTS                               -->
+        <!-- ══════════════════════════════════════ -->
         <section id="projects" class="text-center py-24">
-            <h2 class="text-3xl font-semibold mb-2">Projects</h2>
-            <!-- ✅ Added subtitle for context -->
-            <p class="text-sm opacity-60 mb-6 tracking-wide">A selection of things I've built</p>
-            <div class="buttons">
-                <button onclick="showAllProjects()" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">ALL</button>
-                <button onclick="filterProjects('fullstack')" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out">FULLSTACK</button>
-                <button onclick="filterProjects('datascience')" class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out my-4">DATA SCIENCE</button>
+            <h2 class="text-3xl font-semibold mb-1">Projects</h2>
+            <p class="text-sm mb-6" style="opacity:0.4;letter-spacing:0.06em;">A selection of things I've built</p>
+
+            <!-- ✅ Filter buttons — active state + counts -->
+            <div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.8rem;">
+                <button onclick="handleFilter('all', this)"         class="filter-btn active">ALL <span class="count-badge" id="cnt-all">10</span></button>
+                <button onclick="handleFilter('fullstack', this)"   class="filter-btn">FULLSTACK <span class="count-badge" id="cnt-fs">5</span></button>
+                <button onclick="handleFilter('datascience', this)" class="filter-btn">DATA SCIENCE <span class="count-badge" id="cnt-ds">5</span></button>
             </div>
-            <div class="container">
-                <!-- Data Genie -->
+
+            <div class="container" id="projectsGrid">
+
                 <div class="card" data-category="datascience">
-                    <div class="card-image">
-                        <img src="./assets/eda.jpg" alt="Data Genie project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/eda.jpg" alt="Data Genie project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">Data Genie</h2>
                         <p class="card-body">Your personal AI assistant for data exploration and modelling. Forget cumbersome tools — Data Genie simplifies the process, empowering you to unlock valuable insights and build powerful models without the hassle.</p>
-                        <ul class="skill-set">
-                            <li>#Streamlit</li>
-                            <li>#Pandas</li>
-                        </ul>
+                        <ul class="skill-set"><li>#Streamlit</li><li>#Pandas</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://madhukar-reddy2002-eda-app-nmf7f8.streamlit.app/" target="_blank" aria-label="Visit Data Genie project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://madhukar-reddy2002-eda-app-nmf7f8.streamlit.app/" target="_blank" aria-label="Visit Data Genie"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- IPL Guru -->
                 <div class="card" data-category="datascience">
-                    <div class="card-image">
-                        <img src="./assets/ipl.jpg" alt="IPL Guru project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/ipl.jpg" alt="IPL Guru project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">IPL Guru</h2>
                         <p class="card-body">Become an IPL mastermind! This Tableau app lets you explore the rich history of the IPL from 2008 to 2018, uncovering hidden stats and insights that will transform you into a true cricket fanatic.</p>
-                        <ul class="skill-set">
-                            <li>#Tableau</li>
-                        </ul>
+                        <ul class="skill-set"><li>#Tableau</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://public.tableau.com/app/profile/dandu.madhukar.reddy/viz/IPL_16771263300350/Dashboard5?publish=yes" target="_blank" aria-label="Visit IPL Guru project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://public.tableau.com/app/profile/dandu.madhukar.reddy/viz/IPL_16771263300350/Dashboard5?publish=yes" target="_blank" aria-label="Visit IPL Guru"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- Indian Agriculture Dashboard -->
                 <div class="card" data-category="datascience">
-                    <div class="card-image">
-                        <img src="./assets/agri.jpeg" alt="Indian Agriculture Dashboard project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/agri.jpeg" alt="Indian Agriculture Dashboard" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">Indian Agriculture Dashboard</h2>
                         <p class="card-body">An interactive Streamlit dashboard exploring Indian agriculture data. Visualize crop production across states with dynamic charts and region-level breakdowns.</p>
-                        <ul class="skill-set">
-                            <li>#Streamlit</li>
-                            <li>#Plotly</li>
-                        </ul>
+                        <ul class="skill-set"><li>#Streamlit</li><li>#Plotly</li></ul>
                     </div>
-                    <!-- ✅ Fixed: missing closing > on </a> -->
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://cropanalysis.streamlit.app/" target="_blank" aria-label="Visit Indian Agriculture Dashboard project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://cropanalysis.streamlit.app/" target="_blank" aria-label="Visit Agriculture Dashboard"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- Super-Story -->
                 <div class="card" data-category="datascience">
-                    <div class="card-image">
-                        <img src="./assets/superstore.jpeg" alt="Super-Story project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/superstore.jpeg" alt="Super-Story project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">Super-Story</h2>
-                        <p class="card-body">Unleash the secrets in your Superstore data. This interactive Streamlit app empowers you to effortlessly explore, analyze, and visualize your sales data with actionable clarity.</p>
-                        <ul class="skill-set">
-                            <li>#Plotly</li>
-                            <li>#Python</li>
-                        </ul>
+                        <p class="card-body">Unleash the secrets in your Superstore data. This Streamlit app empowers you to effortlessly explore, analyze, and visualize your sales data with actionable clarity.</p>
+                        <ul class="skill-set"><li>#Plotly</li><li>#Python</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://superstorebyms.streamlit.app/" target="_blank" aria-label="Visit Super-Story project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://superstorebyms.streamlit.app/" target="_blank" aria-label="Visit Super-Story"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- Floral Sorcery -->
                 <div class="card" data-category="datascience">
-                    <div class="card-image">
-                        <img src="./assets/flowerapp.jpeg" alt="Floral Sorcery project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/flowerapp.jpeg" alt="Floral Sorcery project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">Floral Sorcery</h2>
-                        <p class="card-body">Upload any flower image and let the CNN model do the rest — predicting the flower type alongside a confidence score. A fun showcase of deep learning applied to image classification.</p>
-                        <ul class="skill-set">
-                            <li>#Streamlit</li>
-                            <li>#CNN</li>
-                        </ul>
+                        <p class="card-body">Upload any flower image and let the CNN model predict the flower type and confidence score. A showcase of deep learning applied to image classification.</p>
+                        <ul class="skill-set"><li>#Streamlit</li><li>#CNN</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://madhukar-reddy2002-streamlitflowersapp-app-kx1vpn.streamlit.app/" target="_blank" aria-label="Visit Floral Sorcery project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://madhukar-reddy2002-streamlitflowersapp-app-kx1vpn.streamlit.app/" target="_blank" aria-label="Visit Floral Sorcery"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- My-Mate -->
                 <div class="card" data-category="fullstack">
-                    <div class="card-image">
-                        <img src="./assets/exp.jpeg" alt="My-Mate project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/exp.jpeg" alt="My-Mate project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">My-Mate</h2>
-                        <p class="card-body">A Next.js + Firebase web app that combines a robust task manager with intuitive financial tracking — your productivity and finances, seamlessly in one place.</p>
-                        <ul class="skill-set">
-                            <li>#Next-js</li>
-                            <li>#Firebase</li>
-                        </ul>
+                        <p class="card-body">A Next.js + Firebase web app combining a robust task manager with intuitive financial tracking — your productivity and finances, seamlessly in one place.</p>
+                        <ul class="skill-set"><li>#Next-js</li><li>#Firebase</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://my-mate.vercel.app/" target="_blank" aria-label="Visit My-Mate project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://my-mate.vercel.app/" target="_blank" aria-label="Visit My-Mate"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- Chit-Chat -->
                 <div class="card" data-category="fullstack">
-                    <div class="card-image">
-                        <img src="./assets/chatt.png" alt="Chit-Chat project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/chatt.png" alt="Chit-Chat project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">Chit-Chat</h2>
-                        <p class="card-body">A real-time chat application to connect with friends — and keep things fun when you're bored. Built with React and Firebase for instant, seamless messaging.</p>
-                        <ul class="skill-set">
-                            <li>#React-js</li>
-                            <li>#Firebase</li>
-                        </ul>
+                        <p class="card-body">A real-time chat app to connect with friends — and keep things fun when you're bored. Built with React and Firebase for instant, seamless messaging.</p>
+                        <ul class="skill-set"><li>#React-js</li><li>#Firebase</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://chi-chat-psi.vercel.app/" target="_blank" aria-label="Visit Chit-Chat project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://chi-chat-psi.vercel.app/" target="_blank" aria-label="Visit Chit-Chat"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- Bookworm -->
                 <div class="card" data-category="fullstack">
-                    <div class="card-image">
-                        <img src="./assets/book.jpeg" alt="Bookworm project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/book.jpeg" alt="Bookworm project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">Bookworm</h2>
                         <p class="card-body">Your one-stop immersive reading companion. Dive into captivating stories, personalize your reading journey, and retain key insights — all in one beautifully crafted space.</p>
-                        <ul class="skill-set">
-                            <li>#Next-js</li>
-                        </ul>
+                        <ul class="skill-set"><li>#Next-js</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://book-six-livid.vercel.app/" target="_blank" aria-label="Visit Bookworm project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://book-six-livid.vercel.app/" target="_blank" aria-label="Visit Bookworm"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- Weather360 -->
                 <div class="card" data-category="fullstack">
-                    <div class="card-image">
-                        <img src="./assets/weather.jpeg" alt="Weather360 project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/weather.jpeg" alt="Weather360 project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">Weather360</h2>
                         <p class="card-body">Your ultimate weather companion — instant, accurate forecasts for any city around the globe. Know what to expect, anywhere and anytime, with just a few taps.</p>
-                        <ul class="skill-set">
-                            <li>#React-js</li>
-                            <li>#Axios</li>
-                        </ul>
+                        <ul class="skill-set"><li>#React-js</li><li>#Axios</li></ul>
                     </div>
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://weather-360.vercel.app/" target="_blank" aria-label="Visit Weather360 project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://weather-360.vercel.app/" target="_blank" aria-label="Visit Weather360"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
 
-                <!-- SentiSight -->
                 <div class="card" data-category="fullstack">
-                    <div class="card-image">
-                        <img src="./assets/sentim.png" alt="SentiSight project" loading="lazy">
-                    </div>
+                    <div class="card-image"><img src="./assets/sentim.png" alt="SentiSight project" loading="lazy"></div>
                     <div class="card-text">
                         <h2 class="card-title">SentiSight</h2>
-                        <p class="card-body">Unsure of the emotional weight of your writing? SentiSight is your personal sentiment analysis tool, harnessing NLP to reveal the hidden emotions and tone within any text.</p>
-                        <ul class="skill-set">
-                            <li>#React-js</li>
-                            <li>#Axios</li>
-                        </ul>
+                        <p class="card-body">Unsure of the emotional weight of your writing? SentiSight harnesses NLP to reveal the hidden emotions and tone within any text — instantly.</p>
+                        <ul class="skill-set"><li>#React-js</li><li>#Axios</li></ul>
                     </div>
-                    <!-- ✅ Fixed: </div></a> order was wrong — now correctly wrapped -->
-                    <div class="card-price">
-                        <a rel="noopener noreferrer" href="https://sentiment-app-omega.vercel.app/" target="_blank" aria-label="Visit SentiSight project">
-                            <img src="./assets/visit3d.png" alt="Visit project">
-                        </a>
-                    </div>
+                    <div class="card-price"><a rel="noopener noreferrer" href="https://sentiment-app-omega.vercel.app/" target="_blank" aria-label="Visit SentiSight"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
                 </div>
+
             </div>
         </section>
 
@@ -495,25 +551,29 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="flex flex-col justify-center items-center md:items-start">
                         <h3 class="text-2xl font-semibold mb-3">Let's Connect!</h3>
-                        <p class="mb-4 text-gray-300 text-sm leading-relaxed">I'm always excited to collaborate on new projects and discuss data-driven solutions. Reach out anytime.</p>
-                        <a href="mailto:tomadhukarreddy@gmail.com" class="underline flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="Send email to Madhukar">
+                        <p class="mb-4 text-gray-300 text-sm leading-relaxed">Always excited to collaborate on new projects and discuss data-driven solutions. Reach out anytime.</p>
+                        <a href="mailto:tomadhukarreddy@gmail.com"
+                           class="underline flex items-center gap-2 hover:opacity-80 transition-opacity"
+                           aria-label="Send email to Madhukar">
                             <img src="./assets/gmail.png" alt="Gmail" class="h-10 w-10">
                             <span>tomadhukarreddy@gmail.com</span>
                         </a>
                     </div>
                     <div class="text-center md:text-left">
-                        <!-- ✅ Fixed: invalid </img> closing tags replaced with proper structure -->
                         <p class="text-sm text-gray-400 mb-3">Find me on</p>
                         <div class="flex justify-center md:justify-start items-center gap-4">
-                            <a rel="noopener noreferrer" href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank" class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="LinkedIn profile">
+                            <a rel="noopener noreferrer" href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank"
+                               class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="LinkedIn">
                                 <img src="./assets/linkedin3d2.png" alt="LinkedIn" class="h-12 w-12">
                                 <span class="text-xs text-gray-400">LinkedIn</span>
                             </a>
-                            <a rel="noopener noreferrer" href="https://github.com/Madhukar-Reddy2002" target="_blank" class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="GitHub profile">
+                            <a rel="noopener noreferrer" href="https://github.com/Madhukar-Reddy2002" target="_blank"
+                               class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="GitHub">
                                 <img src="./assets/github3d-removebg-preview.png" alt="GitHub" class="h-12 w-12">
                                 <span class="text-xs text-gray-400">GitHub</span>
                             </a>
-                            <a rel="noopener noreferrer" href="https://discord.com/channels/1202495888073695262/1202495888073695265" target="_blank" class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="Discord server">
+                            <a rel="noopener noreferrer" href="https://discord.com/channels/1202495888073695262/1202495888073695265" target="_blank"
+                               class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="Discord">
                                 <img src="./assets/discord3d.png" alt="Discord" class="h-12 w-12">
                                 <span class="text-xs text-gray-400">Discord</span>
                             </a>
@@ -521,22 +581,21 @@
                     </div>
                 </div>
             </div>
-            <!-- ✅ Footer copyright with subtle divider -->
             <div class="footer-copy text-center text-gray-400 text-sm">
                 <p>&copy; 2024 Dandu Madhukar Reddy. All rights reserved.</p>
-                <p class="mt-1">Designed with &#x2764; and a lot of ☕</p>
+                <p class="mt-1">Designed with &#x2764; and a lot of &#9749;</p>
             </div>
         </footer>
     </main>
 
-    <!-- ✅ Scroll-to-top button -->
-    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Scroll to top">
+    <!-- Scroll-to-top -->
+    <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
         </svg>
     </button>
 
-    <!-- Scripts -->
+    <!-- External scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/split-type"></script>
@@ -544,17 +603,87 @@
     <script src="./script.js"></script>
     <script src="./animations.js"></script>
 
-    <!-- ✅ Scroll-to-top visibility logic -->
     <script>
-        const scrollBtn = document.getElementById('scrollTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                scrollBtn.classList.add('visible');
+    /* ── Scroll progress bar ─────────────────────────── */
+    const progressBar = document.getElementById('scroll-progress');
+    function updateProgress() {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = total > 0 ? ((scrolled / total) * 100) + '%' : '0%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+
+    /* ── Scroll-to-top button ────────────────────────── */
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+        scrollBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    /* ── Theme switcher toggle ───────────────────────── */
+    function toggleThemeSwitchers() {
+        const panel = document.getElementById('themeSwitchers');
+        panel.classList.toggle('open');
+    }
+
+    /* ── First-visit pulse on theme button ──────────── */
+    window.addEventListener('DOMContentLoaded', () => {
+        if (!sessionStorage.getItem('ms-hinted')) {
+            const btn = document.getElementById('themeMasterBtn');
+            if (btn) {
+                btn.classList.add('theme-btn-pulse');
+                btn.addEventListener('animationend', () => btn.classList.remove('theme-btn-pulse'), { once: true });
+            }
+            sessionStorage.setItem('ms-hinted', '1');
+        }
+    });
+
+    /* ── Project filter with active state + card animation */
+    function handleFilter(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const cards = document.querySelectorAll('#projectsGrid .card');
+        let delay = 0;
+        cards.forEach(card => {
+            const match = category === 'all' || card.dataset.category === category;
+            if (!match) {
+                card.style.display = 'none';
+                card.style.opacity = '0';
             } else {
-                scrollBtn.classList.remove('visible');
+                card.style.display = '';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(12px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, delay);
+                delay += 40;
             }
         });
+    }
+
+    /* ── Active nav on scroll ────────────────────────── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-item[data-section]');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('is-active', link.dataset.section === entry.target.id);
+                });
+            }
+        });
+    }, { threshold: 0.4 });
+    sections.forEach(s => sectionObserver.observe(s));
+
+    /* ── Scroll cue fades out after user scrolls ─────── */
+    const cue = document.getElementById('scrollCue');
+    if (cue) {
+        window.addEventListener('scroll', () => {
+            cue.style.opacity = window.scrollY > 60 ? '0' : '0.4';
+        }, { passive: true });
+    }
     </script>
 </body>
-
 </html>
