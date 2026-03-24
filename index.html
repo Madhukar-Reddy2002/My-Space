@@ -1,689 +1,1591 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M33DZWS7');</script>
-    <!-- End Google Tag Manager -->
+  <!-- ═══════════════════════════════════════════
+       SEO & META
+  ═══════════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dandu Madhukar Reddy — Fullstack Developer & Data Scientist. Building data-driven applications and innovative web experiences.">
+  <meta name="keywords" content="Fullstack Developer, Data Scientist, React, Next.js, Python, CRO Analyst, Portfolio">
+  <meta name="author" content="Dandu Madhukar Reddy">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dandumadhukar.dev/">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dandu Madhukar Reddy — Fullstack Developer & Data Scientist passionate about building data-driven applications and innovative web experiences.">
-    <title>MY-SPACE | Dandu Madhukar Reddy</title>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dandu Madhukar Reddy — Fullstack Developer & Data Scientist">
+  <meta property="og:description" content="Building data-driven applications and innovative web experiences.">
+  <meta property="og:url" content="https://dandumadhukar.dev/">
+  <meta property="og:image" content="./assets/dp.jpg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dandu Madhukar Reddy — Portfolio">
+  <meta name="twitter:description" content="Fullstack Developer & Data Scientist building data-driven apps.">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./style.css">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dandu Madhukar Reddy",
+    "url": "https://dandumadhukar.dev",
+    "jobTitle": "Fullstack Developer & Data Scientist",
+    "email": "tomadhukarreddy@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/dandumadhukarreddy/",
+      "https://github.com/Madhukar-Reddy2002"
+    ]
+  }
+  </script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ9PTZDV08"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-HZ9PTZDV08');
-    </script>
+  <title>Dandu Madhukar Reddy — Portfolio</title>
 
-    <style>
-        /* ─── Base Typography ─────────────────────────── */
-        body { font-family: 'DM Sans', sans-serif; }
-        h1, h2, h3, .nav-item, .card-title { font-family: 'Syne', sans-serif; }
-        .tag-list li { font-family: 'Syne', sans-serif; font-size: 0.8rem; letter-spacing: 0.06em; }
-        .skill-set li { font-size: 0.72rem; letter-spacing: 0.05em; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+  <!-- Fonts: Clash Display (display) + Cabinet Grotesk (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        /* ─── Scroll Progress Bar ──────────────────────── */
-        #scroll-progress {
-            position: fixed; top: 0; left: 0;
-            height: 2.5px; width: 0%;
-            background: linear-gradient(to right, #6366f1, #a78bfa, #38bdf8);
-            z-index: 9999;
-            transition: width 0.08s linear;
-        }
+  <style>
+  /* ═══════════════════════════════════════════════════════
+     DESIGN TOKENS
+  ═══════════════════════════════════════════════════════ */
+  :root {
+    --ink:       #0a0a0f;
+    --ink-2:     #141420;
+    --ink-3:     #1e1e30;
+    --fog:       rgba(255,255,255,0.06);
+    --fog-2:     rgba(255,255,255,0.11);
+    --fog-3:     rgba(255,255,255,0.18);
+    --text:      #e8e8f0;
+    --text-dim:  #8a8aa8;
+    --text-faint:#4a4a66;
+    --accent:    #c9b96e;       /* gold */
+    --accent-2:  #7c6fff;       /* violet */
+    --accent-3:  #4fd1c5;       /* teal */
+    --ff-display:'Cormorant Garamond', Georgia, serif;
+    --ff-body:   'Outfit', system-ui, sans-serif;
+    --radius:    12px;
+    --shadow:    0 2px 40px rgba(0,0,0,0.55);
+  }
 
-        /* ─── MENU label under hamburger ───────────────── */
-        .nav-icon-wrapper {
-            position: fixed; top: 0.55rem; left: 0.7rem;
-            z-index: 100;
-            display: flex; flex-direction: column; align-items: center; gap: 2px;
-            cursor: pointer;
-        }
-        .nav-menu-label {
-            font-family: 'Syne', sans-serif;
-            font-size: 0.52rem; letter-spacing: 0.15em;
-            color: rgba(255,255,255,0.5);
-            user-select: none; transition: color 0.2s;
-        }
-        .nav-icon-wrapper:hover .nav-menu-label { color: rgba(255,255,255,0.95); }
+  /* ═══════════════════════════════════════════════════════
+     RESET & BASE
+  ═══════════════════════════════════════════════════════ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
 
-        /* ─── Theme switcher: hover tooltip ────────────── */
-        .theme-switcher-wrap { position: fixed; top: 0.75rem; right: 0.75rem; z-index: 100; }
-        .theme-hint {
-            position: absolute;
-            top: 50%; right: calc(100% + 10px);
-            transform: translateY(-50%);
-            white-space: nowrap;
-            background: rgba(15,23,42,0.9);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: rgba(255,255,255,0.85);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.68rem; letter-spacing: 0.07em;
-            padding: 0.3rem 0.7rem; border-radius: 999px;
-            pointer-events: none; opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .theme-hint::after {
-            content: '';
-            position: absolute; right: -5px; top: 50%;
-            transform: translateY(-50%);
-            border: 5px solid transparent;
-            border-left-color: rgba(15,23,42,0.9);
-        }
-        .theme-switcher-inner:hover .theme-hint { opacity: 1; }
+  body {
+    background: var(--ink);
+    color: var(--text);
+    font-family: var(--ff-body);
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-        /* First-visit pulse ring on theme button */
-        @keyframes themePulse {
-            0%,100% { box-shadow: 0 0 0 0 rgba(99,102,241,0.65); }
-            50%      { box-shadow: 0 0 0 8px rgba(99,102,241,0); }
-        }
-        .theme-btn-pulse { animation: themePulse 1.8s ease-in-out 4; }
+  /* skip link for accessibility */
+  .skip-link {
+    position: absolute; top: -999px; left: 0;
+    background: var(--accent); color: #000;
+    padding: 8px 16px; z-index: 9999;
+    font-family: var(--ff-body); font-size: 0.85rem;
+    border-radius: 0 0 8px 0;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; }
 
-        /* Swatch name tooltips */
-        .theme-swatch { position: relative; }
-        .theme-swatch::after {
-            content: attr(data-name);
-            position: absolute; bottom: calc(100% + 6px); left: 50%;
-            transform: translateX(-50%);
-            background: rgba(15,23,42,0.92); color: #fff;
-            font-size: 0.6rem; letter-spacing: 0.07em;
-            padding: 2px 8px; border-radius: 4px;
-            white-space: nowrap; opacity: 0; pointer-events: none;
-            transition: opacity 0.2s; font-family: 'DM Sans', sans-serif;
-        }
-        .theme-swatch:hover::after { opacity: 1; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+  button { border: none; cursor: pointer; font-family: var(--ff-body); }
 
-        /* Switcher panel */
-        #themeSwitchers {
-            position: absolute; top: 0; right: 3rem;
-            display: none; gap: 8px; align-items: center;
-        }
-        #themeSwitchers.open { display: flex; }
+  /* focus ring */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 
-        /* ─── Hero: available badge ─────────────────────── */
-        .available-badge {
-            display: inline-flex; align-items: center; gap: 7px;
-            background: rgba(16,185,129,0.1);
-            border: 1px solid rgba(16,185,129,0.3);
-            color: #6ee7b7;
-            font-size: 0.66rem; letter-spacing: 0.09em;
-            padding: 4px 13px; border-radius: 999px;
-            font-family: 'DM Sans', sans-serif;
-            margin-bottom: 1rem;
-        }
-        .available-dot {
-            width: 6px; height: 6px; border-radius: 50%;
-            background: #10b981; flex-shrink: 0;
-        }
-        @keyframes statusPulse {
-            0%,100% { opacity: 1; transform: scale(1); }
-            50%      { opacity: 0.35; transform: scale(0.8); }
-        }
-        .available-dot { animation: statusPulse 2.2s ease-in-out infinite; }
+  /* ═══════════════════════════════════════════════════════
+     SCROLL PROGRESS
+  ═══════════════════════════════════════════════════════ */
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; z-index: 9999;
+    height: 2px; width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+    transition: width 0.08s linear;
+  }
 
-        /* ─── Hero stats bar ────────────────────────────── */
-        .hero-stats {
-            display: flex; justify-content: center;
-            gap: 1.8rem; flex-wrap: wrap;
-            margin-top: 1.8rem;
-        }
-        .hero-stat { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-        .hero-stat-num {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.55rem; font-weight: 800; line-height: 1;
-            background: linear-gradient(135deg, #a78bfa, #38bdf8);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .hero-stat-label { font-size: 0.62rem; letter-spacing: 0.1em; opacity: 0.45; text-transform: uppercase; }
-        .stats-divider { width: 1px; height: 2.1rem; background: rgba(255,255,255,0.1); align-self: center; }
+  /* ═══════════════════════════════════════════════════════
+     GRAIN OVERLAY
+  ═══════════════════════════════════════════════════════ */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size: 180px;
+    opacity: 0.4;
+  }
 
-        /* ─── Scroll-down cue ───────────────────────────── */
-        .scroll-cue {
-            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; gap: 5px;
-            cursor: pointer; opacity: 0.4; transition: opacity 0.4s ease;
-            text-decoration: none; color: inherit;
-        }
-        .scroll-cue:hover { opacity: 0.85; }
-        .scroll-cue span { font-size: 0.57rem; letter-spacing: 0.18em; text-transform: uppercase; }
-        @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(6px); } }
-        .scroll-cue svg { animation: bounce 1.7s ease-in-out infinite; }
-        #hero { position: relative; }
+  /* ═══════════════════════════════════════════════════════
+     HEADER / NAV
+  ═══════════════════════════════════════════════════════ */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    background: rgba(10,10,15,0);
+    backdrop-filter: blur(0px);
+    transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    border-bottom: 1px solid transparent;
+  }
+  .site-header.scrolled {
+    background: rgba(10,10,15,0.9);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    border-color: var(--fog);
+  }
 
-        /* ─── Project filter buttons ────────────────────── */
-        .filter-btn {
-            background: rgba(30,41,59,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.55);
-            padding: 0.4rem 1.2rem; border-radius: 999px;
-            font-family: 'Syne', sans-serif;
-            font-size: 0.73rem; letter-spacing: 0.07em;
-            cursor: pointer; transition: all 0.22s ease;
-        }
-        .filter-btn:hover {
-            background: rgba(99,102,241,0.2);
-            border-color: rgba(99,102,241,0.45);
-            color: #fff;
-        }
-        .filter-btn.active {
-            background: rgba(99,102,241,0.3);
-            border-color: #6366f1; color: #fff;
-            box-shadow: 0 0 0 1px #6366f1 inset;
-        }
+  .logo {
+    font-family: var(--ff-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .logo span { color: var(--accent); }
+  .logo:hover { color: var(--accent); }
 
-        /* Count badge on filter buttons */
-        .count-badge {
-            display: inline-block;
-            background: rgba(99,102,241,0.2); border: 1px solid rgba(99,102,241,0.35);
-            color: #a5b4fc; font-size: 0.62rem; letter-spacing: 0.07em;
-            padding: 1px 7px; border-radius: 999px;
-            font-family: 'DM Sans', sans-serif; margin-left: 5px; vertical-align: middle;
-        }
+  .nav-links {
+    display: flex; align-items: center; gap: 2.2rem;
+  }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--text-dim);
+    font-weight: 500; position: relative;
+    transition: color 0.2s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -3px; left: 0;
+    width: 0; height: 1px; background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-        /* Card fade-in on filter */
-        .card { transition: opacity 0.3s ease, transform 0.3s ease; }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.5rem 1.4rem; border-radius: 999px;
+    border: 1px solid var(--fog-2); color: var(--text);
+    background: var(--fog); transition: all 0.25s;
+    font-weight: 500;
+  }
+  .nav-cta:hover { background: var(--accent); border-color: var(--accent); color: #000; }
 
-        /* ─── Scroll-to-top button ──────────────────────── */
-        #scrollTopBtn {
-            position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
-            background: rgba(30,41,59,0.85); backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.15); color: #fff;
-            width: 2.75rem; height: 2.75rem; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; opacity: 0; transform: translateY(12px);
-            transition: opacity 0.3s, transform 0.3s, background 0.2s;
-            pointer-events: none;
-        }
-        #scrollTopBtn.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
-        #scrollTopBtn:hover   { background: rgba(30,41,59,1); }
-        #scrollTopBtn svg     { width: 1.1rem; height: 1.1rem; }
+  /* Hamburger */
+  .ham-btn {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; width: 2.2rem; height: 2.2rem;
+    background: transparent; padding: 2px;
+  }
+  .ham-btn span {
+    display: block; height: 1.5px; background: var(--text);
+    border-radius: 2px; transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .ham-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .ham-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .ham-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-        /* ─── Section divider ───────────────────────────── */
-        section + section { border-top: 1px solid rgba(255,255,255,0.05); }
+  .mobile-nav {
+    display: none; position: fixed; inset: 0; z-index: 800;
+    background: rgba(10,10,15,0.97); backdrop-filter: blur(24px);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.5rem;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--ff-display); font-size: 3rem; font-weight: 600;
+    color: var(--text-dim); letter-spacing: 0.04em;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .mobile-nav a:hover { color: var(--text); transform: translateX(8px); }
 
-        /* ─── Footer ────────────────────────────────────── */
-        footer .footer-copy {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1rem; padding-top: 0.75rem;
-        }
+  /* ═══════════════════════════════════════════════════════
+     CONTAINER
+  ═══════════════════════════════════════════════════════ */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-        /* ─── Active nav item ───────────────────────────── */
-        .nav-item { transition: opacity 0.2s; }
-        .nav-item.is-active {
-            opacity: 1 !important;
-            text-decoration: underline;
-            text-underline-offset: 5px;
-        }
-    </style>
+  /* ═══════════════════════════════════════════════════════
+     SECTIONS — shared
+  ═══════════════════════════════════════════════════════ */
+  section { position: relative; z-index: 1; }
+  .section-label {
+    display: inline-block; font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid rgba(201,185,110,0.3); padding: 4px 12px;
+    border-radius: 999px; margin-bottom: 1.2rem;
+    font-family: var(--ff-body); font-weight: 500;
+  }
+  .section-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 600; line-height: 1.1;
+    color: var(--text);
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ═══════════════════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════════════════ */
+  #hero {
+    min-height: 100svh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,111,255,0.08) 0%, transparent 70%);
+  }
+
+  .hero-inner { max-width: 800px; margin: 0 auto; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(16,185,129,0.08);
+    border: 1px solid rgba(16,185,129,0.25);
+    color: #6ee7b7; font-size: 0.68rem; letter-spacing: 0.1em;
+    padding: 5px 15px; border-radius: 999px;
+    margin-bottom: 2rem; font-weight: 500;
+  }
+  .hero-badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #10b981; flex-shrink: 0;
+    animation: pulse-dot 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.35; transform: scale(0.75); }
+  }
+
+  .hero-name {
+    font-family: var(--ff-display);
+    font-size: clamp(2.8rem, 8vw, 6.5rem);
+    font-weight: 700; line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-role {
+    font-family: var(--ff-display);
+    font-size: clamp(1.1rem, 3vw, 2rem);
+    font-weight: 400; font-style: italic;
+    color: var(--text-dim); margin-bottom: 2rem;
+    min-height: 2.4rem;
+  }
+  .hero-role .typed-text { color: var(--accent); }
+  .hero-role .cursor {
+    display: inline-block; width: 2px; height: 1em;
+    background: var(--accent); margin-left: 3px;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+  .hero-desc {
+    font-size: 1.05rem; color: var(--text-dim); line-height: 1.8;
+    max-width: 580px; margin: 0 auto 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #0a0a0f;
+    padding: 0.75rem 2rem; border-radius: 999px;
+    font-size: 0.8rem; letter-spacing: 0.1em; font-weight: 600;
+    text-transform: uppercase; transition: all 0.25s;
+    box-shadow: 0 0 30px rgba(201,185,110,0.25);
+  }
+  .btn-primary:hover {
+    background: #d9cb82; box-shadow: 0 0 50px rgba(201,185,110,0.45);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--text);
+    padding: 0.75rem 2rem; border-radius: 999px;
+    font-size: 0.8rem; letter-spacing: 0.1em; font-weight: 500;
+    text-transform: uppercase; transition: all 0.25s;
+    border: 1px solid var(--fog-2);
+  }
+  .btn-secondary:hover { background: var(--fog); border-color: var(--fog-3); }
+
+  /* Hero stats */
+  .hero-stats {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; flex-wrap: wrap;
+    border: 1px solid var(--fog-2); border-radius: 16px;
+    background: var(--fog); backdrop-filter: blur(8px);
+    overflow: hidden; width: fit-content; margin: 0 auto;
+  }
+  .hero-stat {
+    padding: 1.2rem 2rem; text-align: center;
+    border-right: 1px solid var(--fog-2);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-num {
+    font-family: var(--ff-display);
+    font-size: 1.8rem; font-weight: 700; line-height: 1;
+    color: var(--accent); display: block;
+  }
+  .hero-stat-label {
+    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-faint); display: block; margin-top: 4px;
+  }
+
+  /* Scroll cue */
+  .scroll-cue {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: var(--text-faint); opacity: 0.5;
+    transition: opacity 0.4s; text-decoration: none;
+    animation: fade-cue 2s ease 1.5s both;
+  }
+  .scroll-cue:hover { opacity: 0.9; }
+  .scroll-cue span { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .scroll-cue svg { animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(7px); } }
+  @keyframes fade-cue { from { opacity:0; transform:translateX(-50%) translateY(10px); } to { opacity:0.5; transform:translateX(-50%) translateY(0); } }
+
+  /* ═══════════════════════════════════════════════════════
+     ABOUT
+  ═══════════════════════════════════════════════════════ */
+  #about { padding: 7rem 0; }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img-wrap::before {
+    content: '';
+    position: absolute; inset: -20px;
+    background: linear-gradient(135deg, rgba(201,185,110,0.12), rgba(124,111,255,0.1));
+    border-radius: 24px; z-index: 0;
+  }
+  .about-img {
+    position: relative; z-index: 1;
+    width: 100%; border-radius: 16px;
+    border: 1px solid var(--fog-2);
+    box-shadow: var(--shadow);
+  }
+
+  .about-content {}
+  .about-content p {
+    color: var(--text-dim); line-height: 1.85;
+    margin-bottom: 1.2rem; font-size: 1.02rem;
+  }
+
+  .skills-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.75rem; margin-top: 2rem;
+  }
+  .skill-chip {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: var(--fog); border: 1px solid var(--fog-2);
+    border-radius: var(--radius); padding: 0.9rem 1rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .skill-chip:hover {
+    background: var(--fog-2); border-color: rgba(201,185,110,0.25);
+  }
+  .skill-chip-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .skill-chip-label {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--text); display: block;
+  }
+  .skill-chip-tags {
+    font-size: 0.68rem; color: var(--text-faint); margin-top: 2px;
+    display: block; line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     EXPERIENCE (NEW)
+  ═══════════════════════════════════════════════════════ */
+  #experience { padding: 7rem 0; }
+
+  .exp-header { max-width: 520px; margin-bottom: 3.5rem; }
+
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, transparent, var(--fog-2) 10%, var(--fog-2) 90%, transparent);
+  }
+
+  .timeline-item {
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 0 2rem; padding-left: 2rem; margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -5px; top: 6px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--ink-2); border: 2px solid var(--fog-2);
+    transition: border-color 0.3s, background 0.3s;
+    z-index: 1;
+  }
+  .timeline-item:hover::before { border-color: var(--accent); background: var(--accent); }
+
+  .timeline-meta {}
+  .timeline-period {
+    font-size: 0.68rem; letter-spacing: 0.12em; color: var(--text-faint);
+    text-transform: uppercase; white-space: nowrap; padding-top: 4px;
+    display: block; min-width: 110px;
+  }
+
+  .timeline-card {
+    background: var(--fog); border: 1px solid var(--fog-2);
+    border-radius: var(--radius); padding: 1.5rem;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .timeline-item:hover .timeline-card {
+    border-color: rgba(201,185,110,0.2); background: rgba(255,255,255,0.05);
+  }
+  .timeline-role {
+    font-family: var(--ff-display); font-size: 1.25rem; font-weight: 600;
+    color: var(--text); margin-bottom: 4px;
+  }
+  .timeline-company {
+    font-size: 0.78rem; color: var(--accent); letter-spacing: 0.06em;
+    font-weight: 500; margin-bottom: 0.8rem; display: block;
+  }
+  .timeline-desc {
+    font-size: 0.9rem; color: var(--text-dim); line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .timeline-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .timeline-tag {
+    font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+    background: rgba(124,111,255,0.1); border: 1px solid rgba(124,111,255,0.2);
+    color: #b8b1ff; padding: 3px 10px; border-radius: 999px;
+    font-weight: 500;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     TECHNOLOGIES
+  ═══════════════════════════════════════════════════════ */
+  #skills { padding: 7rem 0; overflow: hidden; }
+
+  .skills-header { text-align: center; margin-bottom: 3.5rem; }
+
+  /* Scrolling marquee */
+  .marquee-wrap { margin-bottom: 1.2rem; }
+  .marquee-label {
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--text-faint); text-align: center; margin-bottom: 0.7rem;
+    display: block;
+  }
+  .marquee {
+    overflow: hidden;
+    mask: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+  .marquee-track {
+    display: flex; gap: 0.8rem; width: max-content;
+    animation: scroll-marquee 28s linear infinite;
+  }
+  .marquee-wrap:nth-child(even) .marquee-track {
+    animation-direction: reverse;
+  }
+  @keyframes scroll-marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee-track:hover { animation-play-state: paused; }
+
+  .tech-pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--fog); border: 1px solid var(--fog-2);
+    border-radius: 999px; padding: 0.5rem 1.2rem;
+    font-size: 0.72rem; letter-spacing: 0.1em; font-weight: 600;
+    text-transform: uppercase; color: var(--text-dim);
+    white-space: nowrap; transition: all 0.2s;
+    font-family: var(--ff-body);
+  }
+  .tech-pill:hover {
+    background: var(--fog-2); color: var(--text); border-color: var(--fog-3);
+  }
+  .tech-pill-dot {
+    width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     PROJECTS
+  ═══════════════════════════════════════════════════════ */
+  #projects { padding: 7rem 0; }
+
+  .projects-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 2rem; gap: 1rem; flex-wrap: wrap;
+  }
+
+  .filter-bar {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-btn {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.45rem 1.2rem; border-radius: 999px;
+    border: 1px solid var(--fog-2); background: transparent;
+    color: var(--text-dim); transition: all 0.22s; font-weight: 500;
+    font-family: var(--ff-body);
+  }
+  .filter-btn:hover { background: var(--fog); color: var(--text); }
+  .filter-btn.active {
+    background: rgba(201,185,110,0.15); border-color: rgba(201,185,110,0.4);
+    color: var(--accent);
+  }
+  .filter-count {
+    font-size: 0.6rem; letter-spacing: 0.06em;
+    background: var(--fog-2); border-radius: 999px;
+    padding: 1px 7px; margin-left: 4px; color: var(--text-faint);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .project-card {
+    background: var(--fog); border: 1px solid var(--fog-2);
+    border-radius: 16px; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover {
+    border-color: rgba(201,185,110,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  }
+  .project-card.hidden { display: none; }
+
+  .project-img-wrap {
+    position: relative; overflow: hidden; aspect-ratio: 16/9;
+  }
+  .project-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .project-card:hover .project-img-wrap img { transform: scale(1.05); }
+
+  .project-category-badge {
+    position: absolute; top: 12px; left: 12px;
+    font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 999px; font-weight: 600;
+    backdrop-filter: blur(8px);
+  }
+  .badge-ds {
+    background: rgba(79,209,197,0.2); border: 1px solid rgba(79,209,197,0.35);
+    color: var(--accent-3);
+  }
+  .badge-fs {
+    background: rgba(124,111,255,0.2); border: 1px solid rgba(124,111,255,0.35);
+    color: #b8b1ff;
+  }
+
+  .project-body { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+  .project-title {
+    font-family: var(--ff-display); font-size: 1.3rem; font-weight: 600;
+    color: var(--text); margin-bottom: 0.5rem; line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 0.87rem; color: var(--text-dim); line-height: 1.7;
+    flex: 1; margin-bottom: 1.2rem;
+  }
+  .project-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: auto;
+  }
+  .project-stack {
+    display: flex; flex-wrap: wrap; gap: 5px;
+  }
+  .stack-tag {
+    font-size: 0.6rem; letter-spacing: 0.07em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px;
+    background: var(--fog-2); border: 1px solid var(--fog-2);
+    color: var(--text-faint); font-weight: 500;
+  }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.72rem; letter-spacing: 0.1em; font-weight: 600;
+    text-transform: uppercase; color: var(--accent);
+    padding: 0.45rem 1rem; border-radius: 999px;
+    border: 1px solid rgba(201,185,110,0.3);
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .project-link:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+  .project-link svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+  /* ═══════════════════════════════════════════════════════
+     CONTACT
+  ═══════════════════════════════════════════════════════ */
+  #contact { padding: 7rem 0; }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start;
+  }
+
+  .contact-info p {
+    color: var(--text-dim); font-size: 1rem; line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 0.8rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 12px;
+    color: var(--text-dim); font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  .contact-link:hover { color: var(--text); }
+  .contact-link-icon {
+    width: 2.5rem; height: 2.5rem; border-radius: 10px;
+    background: var(--fog); border: 1px solid var(--fog-2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1.1rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover .contact-link-icon {
+    background: rgba(201,185,110,0.12); border-color: rgba(201,185,110,0.3);
+  }
+
+  /* Contact form */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group label {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 500;
+  }
+  .form-group input,
+  .form-group textarea {
+    background: var(--fog); border: 1px solid var(--fog-2);
+    border-radius: 10px; padding: 0.85rem 1.1rem;
+    color: var(--text); font-family: var(--ff-body); font-size: 0.93rem;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none; width: 100%;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--text-faint); }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: rgba(201,185,110,0.4); background: var(--fog-2);
+  }
+  .form-group textarea { resize: vertical; min-height: 130px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-submit { align-self: flex-start; }
+
+  /* ═══════════════════════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════════════════════ */
+  .site-footer {
+    border-top: 1px solid var(--fog); padding: 2.5rem 0;
+    text-align: center;
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: var(--ff-display); font-size: 1.1rem; font-weight: 600;
+    color: var(--text-dim);
+  }
+  .footer-logo span { color: var(--accent); }
+  .footer-copy { font-size: 0.75rem; color: var(--text-faint); }
+  .footer-socials { display: flex; gap: 1.2rem; }
+  .footer-social {
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-faint); transition: color 0.2s;
+  }
+  .footer-social:hover { color: var(--accent); }
+
+  /* Scroll-to-top */
+  #scrollTopBtn {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+    width: 2.8rem; height: 2.8rem; border-radius: 50%;
+    background: var(--fog); border: 1px solid var(--fog-2);
+    color: var(--text); display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(12px);
+    opacity: 0; transform: translateY(10px) scale(0.9);
+    transition: all 0.3s; pointer-events: none;
+  }
+  #scrollTopBtn.visible { opacity: 1; transform: none; pointer-events: auto; }
+  #scrollTopBtn:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+
+  /* ═══════════════════════════════════════════════════════
+     SECTION DIVIDER
+  ═══════════════════════════════════════════════════════ */
+  .divider {
+    width: 60px; height: 1px; background: var(--fog-2);
+    margin: 1.2rem 0;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     REVEAL ANIMATIONS
+  ═══════════════════════════════════════════════════════ */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  /* ═══════════════════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .about-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-img { max-width: 320px; margin: 0 auto; }
+    .nav-links { display: none; }
+    .ham-btn { display: flex; }
+    .hero-stats .hero-stat { padding: 1rem 1.2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 1rem 1.5rem; }
+    .timeline-item { padding-left: 1.5rem; }
+    .timeline-period { min-width: unset; }
+    .form-row { grid-template-columns: 1fr; }
+    .projects-header { flex-direction: column; align-items: flex-start; }
+    .hero-stats { width: 100%; }
+    .hero-stat { flex: 1; padding: 1rem; }
+    .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+  </style>
 </head>
 
-<body class="theme-winter">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M33DZWS7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<body>
+  <!-- Skip navigation for screen readers -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- ✅ Scroll progress bar -->
-    <div id="scroll-progress"></div>
+  <!-- Scroll progress -->
+  <div id="scroll-progress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
-    <header class="fixed top-0 left-0 w-full z-50 h-0">
+  <!-- ══════════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════════ -->
+  <header class="site-header" role="banner">
+    <a href="#hero" class="logo" aria-label="Home">
+      DMR<span>.</span>
+    </a>
 
-        <!-- ✅ Hamburger + "MENU" label — makes it obvious what the icon does -->
-        <div class="nav-icon-wrapper" id="ham-wrapper"
-             onclick="document.body.classList.toggle('nav-open')"
-             role="button" aria-label="Toggle navigation" tabindex="0">
-            <div class="nav-icon" id="ham">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-            </div>
-            <span class="nav-menu-label">MENU</span>
-        </div>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about"      data-section="about">About</a>
+      <a href="#experience" data-section="experience">Experience</a>
+      <a href="#skills"     data-section="skills">Skills</a>
+      <a href="#projects"   data-section="projects">Projects</a>
+      <a href="#contact"    data-section="contact">Contact</a>
+      <a href="./assets/resume.pdf" download class="nav-cta" aria-label="Download resume">Resume ↓</a>
+    </nav>
 
-        <nav onclick="document.body.classList.toggle('nav-open')" aria-label="Main navigation">
-            <a href="#hero"     class="nav-item" data-section="hero">HOME</a>
-            <a href="#about"    class="nav-item" data-section="about">ABOUT</a>
-            <a href="#skills"   class="nav-item" data-section="skills">SKILLS</a>
-            <a href="#projects" class="nav-item" data-section="projects">PROJECTS</a>
-        </nav>
-
-        <!-- ✅ Theme switcher — hover tooltip + swatch names + first-visit pulse -->
-        <div class="theme-switcher-wrap">
-            <div class="theme-switcher-inner" style="position:relative;">
-                <!-- Tooltip shown on hover -->
-                <span class="theme-hint">🎨 Change Theme</span>
-                <button id="themeMasterBtn"
-                        onclick="toggleThemeSwitchers()"
-                        class="h-10 w-10 rounded-full border-dashed border bg-slate-950"
-                        aria-label="Toggle theme switcher">
-                    <img src="./assets/MSLogo-removebg-preview.png" alt="MY-SPACE logo"
-                         class="cursor-pointer w-full h-full" />
-                </button>
-            </div>
-            <!-- Swatch panel -->
-            <div id="themeSwitchers">
-                <button onclick="setTheme('theme-summer')"
-                        class="h-10 w-10 rounded-full border-dashed bg-sky-500 theme-swatch"
-                        data-name="Summer" aria-label="Summer theme"></button>
-                <button onclick="setTheme('theme-winter')"
-                        class="h-10 w-10 rounded-full border-dashed bg-blue-950 theme-swatch"
-                        data-name="Winter" aria-label="Winter theme"></button>
-                <button onclick="setTheme('theme-autumn')"
-                        class="h-10 w-10 rounded-full border-dashed bg-yellow-100/50 theme-swatch"
-                        data-name="Autumn" aria-label="Autumn theme"></button>
-            </div>
-        </div>
-    </header>
-
-    <main>
-
-        <!-- ══════════════════════════════════════ -->
-        <!-- HERO                                   -->
-        <!-- ══════════════════════════════════════ -->
-        <section id="hero" class="text-center flex">
-            <div>
-                <!-- ✅ "Available" trust signal — instantly readable status -->
-                <div style="display:flex;justify-content:center;margin-bottom:1rem;">
-                    <span class="available-badge">
-                        <span class="available-dot"></span>
-                        Available for opportunities
-                    </span>
-                </div>
-
-                <h1 class="text-xl md:text-3xl mb-4 split-type mt-2">Hi, I'm Dandu Madhukar Reddy</h1>
-                <p class="text-lg leading-relaxed mx-auto max-w-2xl mb-7">
-                    I am passionate about mastering the
-                    <span title="the interaction of two or more technologies to produce a combined effect greater than the sum of their separate effects"
-                          class="underline cursor-pointer">synergy</span>
-                    between Data Science and Fullstack Development to engineer groundbreaking solutions.
-                    I transform innovative concepts into dynamic, data-driven applications — bridging creativity with analytical precision.
-                </p>
-                <a href="./assets/resume.pdf" download
-                   class="bg-gray-800 hover:bg-gray-900 text-white py-2 px-6 rounded-full transition duration-300 ease-in-out"
-                   aria-label="Download resume PDF">
-                    ↓ Download My Resume
-                </a>
-
-                <!-- ✅ Stats bar — at-a-glance social proof -->
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-num">10+</span>
-                        <span class="hero-stat-label">Projects</span>
-                    </div>
-                    <div class="stats-divider"></div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-num">4</span>
-                        <span class="hero-stat-label">Tech Stacks</span>
-                    </div>
-                    <div class="stats-divider"></div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-num">DS</span>
-                        <span class="hero-stat-label">+ Fullstack</span>
-                    </div>
-                    <div class="stats-divider"></div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-num">CRO</span>
-                        <span class="hero-stat-label">Analyst</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="icons"></div>
-
-            <!-- ✅ Scroll-down cue — fades after user scrolls -->
-            <a href="#about" class="scroll-cue" id="scrollCue" aria-label="Scroll to about">
-                <span>Scroll</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2.5"
-                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                </svg>
-            </a>
-        </section>
-
-        <!-- ══════════════════════════════════════ -->
-        <!-- ABOUT                                  -->
-        <!-- ══════════════════════════════════════ -->
-        <section id="about" class="text-center py-24">
-            <div class="container">
-                <h2 class="text-3xl font-semibold mb-8">About Me</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                    <div>
-                        <img src="./assets/dp.jpg" alt="Dandu Madhukar Reddy — Profile Picture"
-                             class="rounded-full mx-auto w-60 mb-8" loading="lazy">
-                        <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">I'm a passionate Fullstack Developer and Data Scientist. With a blend of creativity and analytical thinking, I craft innovative solutions that bridge the gap between technology and data.</p>
-                        <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">My journey into software development began with a curiosity for problem-solving and a knack for building things. Over the years, I've honed my skills across both frontend and backend technologies, enabling me to ship robust applications from concept to deployment.</p>
-                        <p class="text-lg leading-relaxed mx-auto max-w-md mb-6">Beyond engineering, I'm deeply drawn to data science — from surfacing actionable insights to building predictive models that unlock new opportunities and drive smarter decisions.</p>
-                    </div>
-                    <div class="grid grid-cols-1 gap-4">
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">Skills Snapshot</h3>
-                            <ul class="text-left">
-                                <li class="mb-2"><strong>Frontend:</strong> HTML, CSS, JavaScript, React.js, Next.js, Tailwind CSS</li>
-                                <li class="mb-2"><strong>Backend:</strong> Node.js, Express.js, MongoDB, Firebase, MySQL, PostgreSQL</li>
-                                <li class="mb-2"><strong>Data Science:</strong> Python, Pandas, NumPy, TensorFlow, Tableau, Power BI</li>
-                                <li class="mb-2"><strong>CRO Analyst:</strong> GA4, Adobe Analytics, A/B Testing, Hotjar, Figma</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold mb-4">What Drives Me</h3>
-                            <ul class="text-left">
-                                <li class="mb-2">Exploring emerging technologies and their real-world applications</li>
-                                <li class="mb-2">Building scalable, user-centric products with clean architecture</li>
-                                <li class="mb-2">Continuous learning and pushing skill boundaries</li>
-                                <li class="mb-2">Contributing to open-source projects and the developer community</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ══════════════════════════════════════ -->
-        <!-- SKILLS                                 -->
-        <!-- ══════════════════════════════════════ -->
-        <section id="skills" class="text-center py-24 flex items-center justify-center flex-col">
-            <h2 class="text-3xl font-semibold mb-8">TECHNOLOGIES</h2>
-            <div class="scroller py-4">
-                <h2>Front-End</h2>
-                <ul class="tag-list scroller_inner flex" aria-label="Frontend technologies">
-                    <li>HTML</li><li>CSS</li><li>JS &amp; TS</li><li>TAILWINDCSS</li>
-                    <li>REACT-JS</li><li>NEXT.JS</li><li>GSAP</li><li>MUI</li>
-                    <li>HTML</li><li>CSS</li><li>JS &amp; TS</li><li>TAILWINDCSS</li>
-                    <li>REACT-JS</li><li>NEXT.JS</li><li>GSAP</li><li>MUI</li>
-                </ul>
-            </div>
-            <div class="scroller py-4">
-                <h2>Back-End</h2>
-                <ul class="tag-list scroller_inner flex" aria-label="Backend technologies">
-                    <li>MONGO-DB</li><li>EXPRESS-JS</li><li>NODE-JS</li><li>FAST-API</li>
-                    <li>FIREBASE</li><li>MY SQL</li><li>POSTGRE SQL</li>
-                    <li>MONGO-DB</li><li>EXPRESS-JS</li><li>NODE-JS</li><li>FAST-API</li>
-                    <li>FIREBASE</li><li>MY SQL</li><li>POSTGRE SQL</li>
-                </ul>
-            </div>
-            <div class="scroller py-4">
-                <h2>Data Science</h2>
-                <ul class="tag-list scroller_inner flex" aria-label="Data science technologies">
-                    <li>PYTHON</li><li>TABLEAU</li><li>POWER-BI</li><li>PANDAS</li>
-                    <li>NUMPY</li><li>NLP</li><li>DEEP LEARNING</li><li>STREAMLIT</li>
-                    <li>PYTHON</li><li>TABLEAU</li><li>POWER-BI</li><li>PANDAS</li>
-                    <li>NUMPY</li><li>NLP</li><li>DEEP LEARNING</li><li>STREAMLIT</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- ══════════════════════════════════════ -->
-        <!-- PROJECTS                               -->
-        <!-- ══════════════════════════════════════ -->
-        <section id="projects" class="text-center py-24">
-            <h2 class="text-3xl font-semibold mb-1">Projects</h2>
-            <p class="text-sm mb-6" style="opacity:0.4;letter-spacing:0.06em;">A selection of things I've built</p>
-
-            <!-- ✅ Filter buttons — active state + counts -->
-            <div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.8rem;">
-                <button onclick="handleFilter('all', this)"         class="filter-btn active">ALL <span class="count-badge" id="cnt-all">10</span></button>
-                <button onclick="handleFilter('fullstack', this)"   class="filter-btn">FULLSTACK <span class="count-badge" id="cnt-fs">5</span></button>
-                <button onclick="handleFilter('datascience', this)" class="filter-btn">DATA SCIENCE <span class="count-badge" id="cnt-ds">5</span></button>
-            </div>
-
-            <div class="container" id="projectsGrid">
-
-                <div class="card" data-category="datascience">
-                    <div class="card-image"><img src="./assets/eda.jpg" alt="Data Genie project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">Data Genie</h2>
-                        <p class="card-body">Your personal AI assistant for data exploration and modelling. Forget cumbersome tools — Data Genie simplifies the process, empowering you to unlock valuable insights and build powerful models without the hassle.</p>
-                        <ul class="skill-set"><li>#Streamlit</li><li>#Pandas</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://madhukar-reddy2002-eda-app-nmf7f8.streamlit.app/" target="_blank" aria-label="Visit Data Genie"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="datascience">
-                    <div class="card-image"><img src="./assets/ipl.jpg" alt="IPL Guru project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">IPL Guru</h2>
-                        <p class="card-body">Become an IPL mastermind! This Tableau app lets you explore the rich history of the IPL from 2008 to 2018, uncovering hidden stats and insights that will transform you into a true cricket fanatic.</p>
-                        <ul class="skill-set"><li>#Tableau</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://public.tableau.com/app/profile/dandu.madhukar.reddy/viz/IPL_16771263300350/Dashboard5?publish=yes" target="_blank" aria-label="Visit IPL Guru"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="datascience">
-                    <div class="card-image"><img src="./assets/agri.jpeg" alt="Indian Agriculture Dashboard" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">Indian Agriculture Dashboard</h2>
-                        <p class="card-body">An interactive Streamlit dashboard exploring Indian agriculture data. Visualize crop production across states with dynamic charts and region-level breakdowns.</p>
-                        <ul class="skill-set"><li>#Streamlit</li><li>#Plotly</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://cropanalysis.streamlit.app/" target="_blank" aria-label="Visit Agriculture Dashboard"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="datascience">
-                    <div class="card-image"><img src="./assets/superstore.jpeg" alt="Super-Story project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">Super-Story</h2>
-                        <p class="card-body">Unleash the secrets in your Superstore data. This Streamlit app empowers you to effortlessly explore, analyze, and visualize your sales data with actionable clarity.</p>
-                        <ul class="skill-set"><li>#Plotly</li><li>#Python</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://superstorebyms.streamlit.app/" target="_blank" aria-label="Visit Super-Story"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="datascience">
-                    <div class="card-image"><img src="./assets/flowerapp.jpeg" alt="Floral Sorcery project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">Floral Sorcery</h2>
-                        <p class="card-body">Upload any flower image and let the CNN model predict the flower type and confidence score. A showcase of deep learning applied to image classification.</p>
-                        <ul class="skill-set"><li>#Streamlit</li><li>#CNN</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://madhukar-reddy2002-streamlitflowersapp-app-kx1vpn.streamlit.app/" target="_blank" aria-label="Visit Floral Sorcery"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="fullstack">
-                    <div class="card-image"><img src="./assets/exp.jpeg" alt="My-Mate project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">My-Mate</h2>
-                        <p class="card-body">A Next.js + Firebase web app combining a robust task manager with intuitive financial tracking — your productivity and finances, seamlessly in one place.</p>
-                        <ul class="skill-set"><li>#Next-js</li><li>#Firebase</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://my-mate.vercel.app/" target="_blank" aria-label="Visit My-Mate"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="fullstack">
-                    <div class="card-image"><img src="./assets/chatt.png" alt="Chit-Chat project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">Chit-Chat</h2>
-                        <p class="card-body">A real-time chat app to connect with friends — and keep things fun when you're bored. Built with React and Firebase for instant, seamless messaging.</p>
-                        <ul class="skill-set"><li>#React-js</li><li>#Firebase</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://chi-chat-psi.vercel.app/" target="_blank" aria-label="Visit Chit-Chat"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="fullstack">
-                    <div class="card-image"><img src="./assets/book.jpeg" alt="Bookworm project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">Bookworm</h2>
-                        <p class="card-body">Your one-stop immersive reading companion. Dive into captivating stories, personalize your reading journey, and retain key insights — all in one beautifully crafted space.</p>
-                        <ul class="skill-set"><li>#Next-js</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://book-six-livid.vercel.app/" target="_blank" aria-label="Visit Bookworm"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="fullstack">
-                    <div class="card-image"><img src="./assets/weather.jpeg" alt="Weather360 project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">Weather360</h2>
-                        <p class="card-body">Your ultimate weather companion — instant, accurate forecasts for any city around the globe. Know what to expect, anywhere and anytime, with just a few taps.</p>
-                        <ul class="skill-set"><li>#React-js</li><li>#Axios</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://weather-360.vercel.app/" target="_blank" aria-label="Visit Weather360"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-                <div class="card" data-category="fullstack">
-                    <div class="card-image"><img src="./assets/sentim.png" alt="SentiSight project" loading="lazy"></div>
-                    <div class="card-text">
-                        <h2 class="card-title">SentiSight</h2>
-                        <p class="card-body">Unsure of the emotional weight of your writing? SentiSight harnesses NLP to reveal the hidden emotions and tone within any text — instantly.</p>
-                        <ul class="skill-set"><li>#React-js</li><li>#Axios</li></ul>
-                    </div>
-                    <div class="card-price"><a rel="noopener noreferrer" href="https://sentiment-app-omega.vercel.app/" target="_blank" aria-label="Visit SentiSight"><img src="./assets/visit3d.png" alt="Visit project"></a></div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="bg-gray-800 text-white py-6">
-            <div class="container">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex flex-col justify-center items-center md:items-start">
-                        <h3 class="text-2xl font-semibold mb-3">Let's Connect!</h3>
-                        <p class="mb-4 text-gray-300 text-sm leading-relaxed">Always excited to collaborate on new projects and discuss data-driven solutions. Reach out anytime.</p>
-                        <a href="mailto:tomadhukarreddy@gmail.com"
-                           class="underline flex items-center gap-2 hover:opacity-80 transition-opacity"
-                           aria-label="Send email to Madhukar">
-                            <img src="./assets/gmail.png" alt="Gmail" class="h-10 w-10">
-                            <span>tomadhukarreddy@gmail.com</span>
-                        </a>
-                    </div>
-                    <div class="text-center md:text-left">
-                        <p class="text-sm text-gray-400 mb-3">Find me on</p>
-                        <div class="flex justify-center md:justify-start items-center gap-4">
-                            <a rel="noopener noreferrer" href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank"
-                               class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="LinkedIn">
-                                <img src="./assets/linkedin3d2.png" alt="LinkedIn" class="h-12 w-12">
-                                <span class="text-xs text-gray-400">LinkedIn</span>
-                            </a>
-                            <a rel="noopener noreferrer" href="https://github.com/Madhukar-Reddy2002" target="_blank"
-                               class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="GitHub">
-                                <img src="./assets/github3d-removebg-preview.png" alt="GitHub" class="h-12 w-12">
-                                <span class="text-xs text-gray-400">GitHub</span>
-                            </a>
-                            <a rel="noopener noreferrer" href="https://discord.com/channels/1202495888073695262/1202495888073695265" target="_blank"
-                               class="social-link flex flex-col items-center gap-1 hover:opacity-80 transition-opacity" aria-label="Discord">
-                                <img src="./assets/discord3d.png" alt="Discord" class="h-12 w-12">
-                                <span class="text-xs text-gray-400">Discord</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copy text-center text-gray-400 text-sm">
-                <p>&copy; 2024 Dandu Madhukar Reddy. All rights reserved.</p>
-                <p class="mt-1">Designed with &#x2764; and a lot of &#9749;</p>
-            </div>
-        </footer>
-    </main>
-
-    <!-- Scroll-to-top -->
-    <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-        </svg>
+    <button class="ham-btn" id="hamBtn" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
     </button>
+  </header>
 
-    <!-- External scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/split-type"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <script src="./script.js"></script>
-    <script src="./animations.js"></script>
+  <!-- Mobile nav overlay -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#about"      onclick="closeMobileNav()">About</a>
+    <a href="#experience" onclick="closeMobileNav()">Experience</a>
+    <a href="#skills"     onclick="closeMobileNav()">Skills</a>
+    <a href="#projects"   onclick="closeMobileNav()">Projects</a>
+    <a href="#contact"    onclick="closeMobileNav()">Contact</a>
+  </nav>
 
-    <script>
-    /* ── Scroll progress bar ─────────────────────────── */
-    const progressBar = document.getElementById('scroll-progress');
-    function updateProgress() {
-        const scrolled = window.scrollY;
-        const total = document.documentElement.scrollHeight - window.innerHeight;
-        progressBar.style.width = total > 0 ? ((scrolled / total) * 100) + '%' : '0%';
-    }
-    window.addEventListener('scroll', updateProgress, { passive: true });
+  <main id="main-content">
 
-    /* ── Scroll-to-top button ────────────────────────── */
-    const scrollBtn = document.getElementById('scrollTopBtn');
+    <!-- ══════════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════════ -->
+    <section id="hero" aria-label="Introduction">
+      <div class="hero-inner">
+        <div class="hero-badge" aria-label="Current status">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Available for opportunities
+        </div>
+
+        <h1 class="hero-name">Dandu Madhukar<br>Reddy</h1>
+
+        <p class="hero-role" aria-label="Role">
+          <span class="typed-text" id="typedRole" aria-live="polite"></span><span class="cursor" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero-desc">
+          I engineer data-driven applications where fullstack development
+          meets analytical precision — transforming complex problems into
+          elegant, impactful solutions.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 12h18M13 6l6 6-6 6"/></svg>
+            View My Work
+          </a>
+          <a href="./assets/resume.pdf" download class="btn-secondary" aria-label="Download resume PDF">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download CV
+          </a>
+        </div>
+
+        <div class="hero-stats" role="list" aria-label="Key statistics">
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">10+</span>
+            <span class="hero-stat-label">Projects</span>
+          </div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">4</span>
+            <span class="hero-stat-label">Tech Stacks</span>
+          </div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">DS</span>
+            <span class="hero-stat-label">+ Fullstack</span>
+          </div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-num">CRO</span>
+            <span class="hero-stat-label">Analyst</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" id="scrollCue" aria-label="Scroll to About section">
+        <span>Scroll</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         ABOUT
+    ══════════════════════════════════════════════ -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-img-wrap reveal">
+            <img src="./assets/dp.jpg"
+                 alt="Dandu Madhukar Reddy — Profile Picture"
+                 class="about-img"
+                 loading="lazy"
+                 width="400" height="400">
+          </div>
+          <div class="about-content">
+            <span class="section-label">About Me</span>
+            <h2 class="section-title" id="about-heading">
+              Building at the intersection of <em>code & data</em>
+            </h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p>I'm a Fullstack Developer and Data Scientist with a passion for building products that are as analytically rigorous as they are beautiful to use.</p>
+            <p>My journey started with a deep curiosity for problem-solving. I've since shipped robust applications from concept to production, and built data pipelines and ML models that drive real decisions.</p>
+            <p>Beyond the code, I work as a CRO Analyst — using tools like GA4 and A/B testing to connect product experience directly to business outcomes.</p>
+
+            <div class="skills-grid" role="list" aria-label="Skill categories">
+              <div class="skill-chip reveal reveal-delay-1" role="listitem">
+                <span class="skill-chip-icon" aria-hidden="true">⚡</span>
+                <div>
+                  <span class="skill-chip-label">Frontend</span>
+                  <span class="skill-chip-tags">React · Next.js · Tailwind · GSAP</span>
+                </div>
+              </div>
+              <div class="skill-chip reveal reveal-delay-2" role="listitem">
+                <span class="skill-chip-icon" aria-hidden="true">🛠</span>
+                <div>
+                  <span class="skill-chip-label">Backend</span>
+                  <span class="skill-chip-tags">Node · Express · Firebase · PostgreSQL</span>
+                </div>
+              </div>
+              <div class="skill-chip reveal reveal-delay-3" role="listitem">
+                <span class="skill-chip-icon" aria-hidden="true">📊</span>
+                <div>
+                  <span class="skill-chip-label">Data Science</span>
+                  <span class="skill-chip-tags">Python · TensorFlow · Pandas · Tableau</span>
+                </div>
+              </div>
+              <div class="skill-chip reveal reveal-delay-1" role="listitem">
+                <span class="skill-chip-icon" aria-hidden="true">📈</span>
+                <div>
+                  <span class="skill-chip-label">CRO</span>
+                  <span class="skill-chip-tags">GA4 · A/B Testing · Hotjar · Figma</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         EXPERIENCE (NEW SECTION)
+    ══════════════════════════════════════════════ -->
+    <section id="experience" aria-labelledby="exp-heading">
+      <div class="container">
+        <div class="exp-header reveal">
+          <span class="section-label">Experience</span>
+          <h2 class="section-title" id="exp-heading">
+            Where I've <em>worked & learned</em>
+          </h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p style="color:var(--text-dim);font-size:0.95rem;line-height:1.8;margin-top:0.8rem;">
+            A timeline of roles, projects, and milestones that have shaped my craft.
+          </p>
+        </div>
+
+        <div class="timeline" role="list">
+
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-card">
+              <span class="timeline-period">2024 — Present</span>
+              <h3 class="timeline-role">Fullstack Developer & Data Scientist</h3>
+              <span class="timeline-company">Freelance / Independent Projects</span>
+              <p class="timeline-desc">
+                Designing and shipping full-cycle web applications and data solutions for clients across domains. Delivering end-to-end products — from database schema design and REST API architecture through to React/Next.js frontends and deployed ML models.
+              </p>
+              <div class="timeline-tags" aria-label="Technologies used">
+                <span class="timeline-tag">Next.js</span>
+                <span class="timeline-tag">Firebase</span>
+                <span class="timeline-tag">Python</span>
+                <span class="timeline-tag">Streamlit</span>
+                <span class="timeline-tag">TensorFlow</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal reveal-delay-1" role="listitem">
+            <div class="timeline-card">
+              <span class="timeline-period">2023 — 2024</span>
+              <h3 class="timeline-role">CRO Analyst</h3>
+              <span class="timeline-company">Digital Analytics Practice</span>
+              <p class="timeline-desc">
+                Implemented and analysed A/B and multivariate tests to improve conversion rates. Worked with GA4, Adobe Analytics, and Hotjar to surface behavioural insights and build dashboards that informed product decisions.
+              </p>
+              <div class="timeline-tags" aria-label="Technologies used">
+                <span class="timeline-tag">GA4</span>
+                <span class="timeline-tag">Adobe Analytics</span>
+                <span class="timeline-tag">Hotjar</span>
+                <span class="timeline-tag">Figma</span>
+                <span class="timeline-tag">A/B Testing</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal reveal-delay-2" role="listitem">
+            <div class="timeline-card">
+              <span class="timeline-period">2022 — 2023</span>
+              <h3 class="timeline-role">Data Science Projects — Academic & Personal</h3>
+              <span class="timeline-company">Self-driven Research</span>
+              <p class="timeline-desc">
+                Built and deployed multiple ML and data visualisation projects — IPL analytics dashboards, CNN flower classifier, sentiment analysis tools, and agricultural data explorers. Each project focused on turning raw data into actionable, interactive stories.
+              </p>
+              <div class="timeline-tags" aria-label="Technologies used">
+                <span class="timeline-tag">Python</span>
+                <span class="timeline-tag">Tableau</span>
+                <span class="timeline-tag">Pandas</span>
+                <span class="timeline-tag">CNN</span>
+                <span class="timeline-tag">NLP</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         SKILLS / TECHNOLOGIES
+    ══════════════════════════════════════════════ -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="skills-header reveal">
+          <span class="section-label">Technologies</span>
+          <h2 class="section-title" id="skills-heading">
+            My <em>tech stack</em>
+          </h2>
+        </div>
+      </div>
+
+      <!-- Frontend row -->
+      <div class="marquee-wrap">
+        <span class="marquee-label">Frontend</span>
+        <div class="marquee" aria-label="Frontend technologies" role="list">
+          <div class="marquee-track">
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#e34c26" aria-hidden="true"></span>HTML5</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#264de4" aria-hidden="true"></span>CSS3</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#f7df1e" aria-hidden="true"></span>JavaScript</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#3178c6" aria-hidden="true"></span>TypeScript</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#61dafb" aria-hidden="true"></span>React.js</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#000" aria-hidden="true"></span>Next.js</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#38bdf8" aria-hidden="true"></span>Tailwind CSS</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#88ce02" aria-hidden="true"></span>GSAP</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#007fff" aria-hidden="true"></span>MUI</span>
+            <!-- duplicate for seamless loop -->
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#e34c26"></span>HTML5</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#264de4"></span>CSS3</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#f7df1e"></span>JavaScript</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#3178c6"></span>TypeScript</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#61dafb"></span>React.js</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#000"></span>Next.js</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#38bdf8"></span>Tailwind CSS</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#88ce02"></span>GSAP</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#007fff"></span>MUI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend row -->
+      <div class="marquee-wrap" style="margin-top:1.4rem;">
+        <span class="marquee-label">Backend & Data</span>
+        <div class="marquee" aria-label="Backend and data technologies" role="list">
+          <div class="marquee-track">
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#339933" aria-hidden="true"></span>Node.js</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#000" aria-hidden="true"></span>Express.js</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#47a248" aria-hidden="true"></span>MongoDB</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#ffca28" aria-hidden="true"></span>Firebase</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#336791" aria-hidden="true"></span>PostgreSQL</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#00758f" aria-hidden="true"></span>MySQL</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#3776ab" aria-hidden="true"></span>Python</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#ff4b4b" aria-hidden="true"></span>Streamlit</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#009688" aria-hidden="true"></span>FastAPI</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#ee4c2c" aria-hidden="true"></span>TensorFlow</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#150458" aria-hidden="true"></span>Pandas</span>
+            <span class="tech-pill" role="listitem"><span class="tech-pill-dot" style="background:#4a90d9" aria-hidden="true"></span>Tableau</span>
+            <!-- duplicate -->
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#339933"></span>Node.js</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#000"></span>Express.js</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#47a248"></span>MongoDB</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#ffca28"></span>Firebase</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#336791"></span>PostgreSQL</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#00758f"></span>MySQL</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#3776ab"></span>Python</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#ff4b4b"></span>Streamlit</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#009688"></span>FastAPI</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#ee4c2c"></span>TensorFlow</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#150458"></span>Pandas</span>
+            <span class="tech-pill" aria-hidden="true"><span class="tech-pill-dot" style="background:#4a90d9"></span>Tableau</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         PROJECTS
+    ══════════════════════════════════════════════ -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="projects-header">
+          <div>
+            <span class="section-label">Projects</span>
+            <h2 class="section-title" id="projects-heading">
+              Things I've <em>built</em>
+            </h2>
+          </div>
+          <div class="filter-bar" role="group" aria-label="Filter projects by category">
+            <button class="filter-btn active" onclick="filterProjects('all',this)" aria-pressed="true">
+              All<span class="filter-count" aria-label="10 projects">10</span>
+            </button>
+            <button class="filter-btn" onclick="filterProjects('fullstack',this)" aria-pressed="false">
+              Fullstack<span class="filter-count" aria-label="5 projects">5</span>
+            </button>
+            <button class="filter-btn" onclick="filterProjects('datascience',this)" aria-pressed="false">
+              Data Science<span class="filter-count" aria-label="5 projects">5</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- Data Science Cards -->
+          <article class="project-card reveal" data-category="datascience" aria-label="Data Genie project">
+            <div class="project-img-wrap">
+              <img src="./assets/eda.jpg" alt="Data Genie — EDA and modelling interface" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-ds">Data Science</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Data Genie</h3>
+              <p class="project-desc">AI-powered data exploration and modelling assistant. Upload any dataset and unlock insights, summaries, and model outputs — no code required.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">Streamlit</span>
+                  <span class="stack-tag">Pandas</span>
+                </div>
+                <a href="https://madhukar-reddy2002-eda-app-nmf7f8.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Data Genie (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1" data-category="datascience" aria-label="IPL Guru project">
+            <div class="project-img-wrap">
+              <img src="./assets/ipl.jpg" alt="IPL Guru — Tableau cricket analytics dashboard" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-ds">Data Science</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">IPL Guru</h3>
+              <p class="project-desc">Explore 10 years of IPL cricket history through interactive Tableau visualisations. Hidden stats and performance patterns made beautifully obvious.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">Tableau</span>
+                </div>
+                <a href="https://public.tableau.com/app/profile/dandu.madhukar.reddy/viz/IPL_16771263300350/Dashboard5?publish=yes" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit IPL Guru (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-2" data-category="datascience" aria-label="Indian Agriculture Dashboard">
+            <div class="project-img-wrap">
+              <img src="./assets/agri.jpeg" alt="Indian Agriculture Dashboard — Streamlit crop analytics" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-ds">Data Science</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Indian Agriculture Dashboard</h3>
+              <p class="project-desc">Interactive crop production analysis across Indian states. Dynamic charts and region-level breakdowns built with Plotly for fast, intuitive exploration.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">Streamlit</span>
+                  <span class="stack-tag">Plotly</span>
+                </div>
+                <a href="https://cropanalysis.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Agriculture Dashboard (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="datascience" aria-label="Super-Story project">
+            <div class="project-img-wrap">
+              <img src="./assets/superstore.jpeg" alt="Super-Story — Superstore sales visualisation" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-ds">Data Science</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Super-Story</h3>
+              <p class="project-desc">Superstore sales analytics made actionable. Explore, filter, and visualise revenue data with Plotly-powered charts to surface growth opportunities.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">Plotly</span>
+                  <span class="stack-tag">Python</span>
+                </div>
+                <a href="https://superstorebyms.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Super-Story (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1" data-category="datascience" aria-label="Floral Sorcery project">
+            <div class="project-img-wrap">
+              <img src="./assets/flowerapp.jpeg" alt="Floral Sorcery — CNN flower classification app" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-ds">Data Science</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Floral Sorcery</h3>
+              <p class="project-desc">Upload any flower image and receive an instant CNN-powered classification with confidence scores. Deep learning image recognition made accessible.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">Streamlit</span>
+                  <span class="stack-tag">CNN</span>
+                  <span class="stack-tag">TensorFlow</span>
+                </div>
+                <a href="https://madhukar-reddy2002-streamlitflowersapp-app-kx1vpn.streamlit.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Floral Sorcery (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Fullstack Cards -->
+          <article class="project-card reveal" data-category="fullstack" aria-label="My-Mate project">
+            <div class="project-img-wrap">
+              <img src="./assets/exp.jpeg" alt="My-Mate — Task and expense tracker app" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-fs">Fullstack</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">My-Mate</h3>
+              <p class="project-desc">Next.js + Firebase productivity app combining task management with financial tracking. Authentication, real-time sync, and a clean dashboard in one.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">Next.js</span>
+                  <span class="stack-tag">Firebase</span>
+                </div>
+                <a href="https://my-mate.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit My-Mate (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1" data-category="fullstack" aria-label="Chit-Chat project">
+            <div class="project-img-wrap">
+              <img src="./assets/chatt.png" alt="Chit-Chat — Real-time messaging app" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-fs">Fullstack</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Chit-Chat</h3>
+              <p class="project-desc">Real-time chat application built with React and Firebase. Instant messaging with authentication, message history, and a responsive mobile-first UI.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">React.js</span>
+                  <span class="stack-tag">Firebase</span>
+                </div>
+                <a href="https://chi-chat-psi.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Chit-Chat (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-2" data-category="fullstack" aria-label="Bookworm project">
+            <div class="project-img-wrap">
+              <img src="./assets/book.jpeg" alt="Bookworm — Immersive reading companion app" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-fs">Fullstack</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Bookworm</h3>
+              <p class="project-desc">Immersive reading companion built with Next.js. Personalised reading journeys, progress tracking, and key-insight retention all in one polished interface.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">Next.js</span>
+                </div>
+                <a href="https://book-six-livid.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Bookworm (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="fullstack" aria-label="Weather360 project">
+            <div class="project-img-wrap">
+              <img src="./assets/weather.jpeg" alt="Weather360 — Global weather forecast app" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-fs">Fullstack</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Weather360</h3>
+              <p class="project-desc">Global weather companion with instant, accurate forecasts for any city. Built with React and Axios for real-time API consumption and a clean visual experience.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">React.js</span>
+                  <span class="stack-tag">Axios</span>
+                </div>
+                <a href="https://weather-360.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit Weather360 (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1" data-category="fullstack" aria-label="SentiSight project">
+            <div class="project-img-wrap">
+              <img src="./assets/sentim.png" alt="SentiSight — NLP sentiment analysis tool" loading="lazy" width="640" height="360">
+              <span class="project-category-badge badge-fs">Fullstack</span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">SentiSight</h3>
+              <p class="project-desc">NLP-powered sentiment and emotion analysis for any text input. Built with React and a backend NLP model to reveal tone, polarity, and emotional weight instantly.</p>
+              <div class="project-footer">
+                <div class="project-stack" aria-label="Technologies">
+                  <span class="stack-tag">React.js</span>
+                  <span class="stack-tag">NLP</span>
+                  <span class="stack-tag">Axios</span>
+                </div>
+                <a href="https://sentiment-app-omega.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Visit SentiSight (opens in new tab)">
+                  Live
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         CONTACT
+    ══════════════════════════════════════════════ -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <span class="section-label">Contact</span>
+            <h2 class="section-title" id="contact-heading">
+              Let's work <em>together</em>
+            </h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p>Always excited to collaborate on ambitious projects, discuss data-driven ideas, or simply connect. Drop a message — I respond within 24 hours.</p>
+            <nav class="contact-links" aria-label="Contact channels">
+              <a href="mailto:tomadhukarreddy@gmail.com" class="contact-link" aria-label="Send email">
+                <span class="contact-link-icon" aria-hidden="true">✉️</span>
+                tomadhukarreddy@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn profile (opens in new tab)">
+                <span class="contact-link-icon" aria-hidden="true">💼</span>
+                linkedin.com/in/dandumadhukarreddy
+              </a>
+              <a href="https://github.com/Madhukar-Reddy2002" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub profile (opens in new tab)">
+                <span class="contact-link-icon" aria-hidden="true">🐙</span>
+                github.com/Madhukar-Reddy2002
+              </a>
+            </nav>
+          </div>
+
+          <form class="contact-form reveal reveal-delay-2" id="contactForm" aria-label="Contact form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="Your name"
+                       autocomplete="name" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" placeholder="your@email.com"
+                       autocomplete="email" required aria-required="true">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">Subject</label>
+              <input type="text" id="cf-subject" name="subject" placeholder="What's this about?">
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" placeholder="Tell me about your project or idea…"
+                        required aria-required="true"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn-primary" id="formSubmitBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+                Send Message
+              </button>
+            </div>
+            <p id="formMsg" role="alert" aria-live="polite" style="display:none;font-size:0.82rem;margin-top:0.5rem;"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">DMR<span>.</span></span>
+        <p class="footer-copy">© 2025 Dandu Madhukar Reddy · Designed with care</p>
+        <nav class="footer-socials" aria-label="Social media links">
+          <a href="https://www.linkedin.com/in/dandumadhukarreddy/" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="LinkedIn (opens in new tab)">LinkedIn</a>
+          <a href="https://github.com/Madhukar-Reddy2002" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="GitHub (opens in new tab)">GitHub</a>
+          <a href="mailto:tomadhukarreddy@gmail.com" class="footer-social" aria-label="Email">Email</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scrollTopBtn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/>
+    </svg>
+  </button>
+
+  <!-- ══════════════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════════════ -->
+  <script>
+  /* ── Scroll progress ─────────────────────────── */
+  const progressBar = document.getElementById('scroll-progress');
+  function updateProgress() {
+    const s = window.scrollY;
+    const t = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = t > 0 ? Math.round((s / t) * 100) : 0;
+    progressBar.style.width = pct + '%';
+    progressBar.setAttribute('aria-valuenow', pct);
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  /* ── Header scroll class ─────────────────────── */
+  const header = document.querySelector('.site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ── Scroll-to-top button ────────────────────── */
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+
+  /* ── Scroll cue fade ─────────────────────────── */
+  const cue = document.getElementById('scrollCue');
+  if (cue) {
     window.addEventListener('scroll', () => {
-        scrollBtn.classList.toggle('visible', window.scrollY > 400);
+      cue.style.opacity = window.scrollY > 80 ? '0' : '0.5';
     }, { passive: true });
+  }
 
-    /* ── Theme switcher toggle ───────────────────────── */
-    function toggleThemeSwitchers() {
-        const panel = document.getElementById('themeSwitchers');
-        panel.classList.toggle('open');
+  /* ── Typewriter ──────────────────────────────── */
+  const roles = [
+    'Fullstack Developer',
+    'Data Scientist',
+    'CRO Analyst',
+    'ML Engineer'
+  ];
+  let ri = 0, ci = 0, deleting = false;
+  const typedEl = document.getElementById('typedRole');
+  function typeWriter() {
+    const current = roles[ri];
+    if (deleting) {
+      typedEl.textContent = current.substring(0, ci--);
+      if (ci < 0) { deleting = false; ri = (ri + 1) % roles.length; setTimeout(typeWriter, 500); return; }
+      setTimeout(typeWriter, 55);
+    } else {
+      typedEl.textContent = current.substring(0, ci++);
+      if (ci > current.length) { deleting = true; setTimeout(typeWriter, 2200); return; }
+      setTimeout(typeWriter, 80);
     }
+  }
+  setTimeout(typeWriter, 800);
 
-    /* ── First-visit pulse on theme button ──────────── */
-    window.addEventListener('DOMContentLoaded', () => {
-        if (!sessionStorage.getItem('ms-hinted')) {
-            const btn = document.getElementById('themeMasterBtn');
-            if (btn) {
-                btn.classList.add('theme-btn-pulse');
-                btn.addEventListener('animationend', () => btn.classList.remove('theme-btn-pulse'), { once: true });
-            }
-            sessionStorage.setItem('ms-hinted', '1');
-        }
+  /* ── Active nav on scroll ────────────────────── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => {
+          const active = l.dataset.section === e.target.id;
+          l.classList.toggle('active', active);
+          l.setAttribute('aria-current', active ? 'true' : 'false');
+        });
+      }
     });
+  }, { threshold: 0.45 });
+  sections.forEach(s => observer.observe(s));
 
-    /* ── Project filter with active state + card animation */
-    function handleFilter(category, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+  /* ── Reveal on scroll ───────────────────────── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObs.observe(el));
 
-        const cards = document.querySelectorAll('#projectsGrid .card');
-        let delay = 0;
-        cards.forEach(card => {
-            const match = category === 'all' || card.dataset.category === category;
-            if (!match) {
-                card.style.display = 'none';
-                card.style.opacity = '0';
-            } else {
-                card.style.display = '';
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(12px)';
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, delay);
-                delay += 40;
-            }
-        });
+  /* ── Mobile nav ─────────────────────────────── */
+  const hamBtn   = document.getElementById('hamBtn');
+  const mobileNav= document.getElementById('mobileNav');
+  function closeMobileNav() {
+    hamBtn.classList.remove('open');
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    hamBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  hamBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamBtn.classList.toggle('open', isOpen);
+    mobileNav.setAttribute('aria-hidden', String(!isOpen));
+    hamBtn.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeMobileNav();
+  });
+
+  /* ── Project filter ─────────────────────────── */
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
+
+    let delay = 0;
+    document.querySelectorAll('#projectsGrid .project-card').forEach(card => {
+      const match = cat === 'all' || card.dataset.category === cat;
+      if (!match) {
+        card.style.display = 'none';
+      } else {
+        card.style.display = '';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(14px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+        }, delay);
+        delay += 50;
+      }
+    });
+  }
+
+  /* ── Contact form (demo / mailto fallback) ──── */
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('formSubmitBtn');
+    const msg = document.getElementById('formMsg');
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !message) {
+      msg.textContent = 'Please fill in all required fields.';
+      msg.style.display = 'block'; msg.style.color = '#f87171';
+      return;
     }
 
-    /* ── Active nav on scroll ────────────────────────── */
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-item[data-section]');
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.toggle('is-active', link.dataset.section === entry.target.id);
-                });
-            }
-        });
-    }, { threshold: 0.4 });
-    sections.forEach(s => sectionObserver.observe(s));
+    // Mailto fallback — works without a backend
+    const mailto = `mailto:tomadhukarreddy@gmail.com?subject=${encodeURIComponent(subject || 'Portfolio Contact')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    window.location.href = mailto;
 
-    /* ── Scroll cue fades out after user scrolls ─────── */
-    const cue = document.getElementById('scrollCue');
-    if (cue) {
-        window.addEventListener('scroll', () => {
-            cue.style.opacity = window.scrollY > 60 ? '0' : '0.4';
-        }, { passive: true });
-    }
-    </script>
+    btn.textContent = '✓ Opening mail client…';
+    btn.disabled = true;
+    msg.textContent = 'Your default mail client should open. If not, email directly at tomadhukarreddy@gmail.com';
+    msg.style.display = 'block'; msg.style.color = '#6ee7b7';
+  });
+  </script>
 </body>
 </html>
